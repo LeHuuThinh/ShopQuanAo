@@ -5,7 +5,7 @@
 
 USE [master]
 GO
-/****** Object:  Database [ShopQuanAo]    Script Date: 9/22/2024 9:21:13 PM ******/
+/****** Object:  Database [ShopQuanAo]    Script Date: 9/22/2024 11:00:48 PM ******/
 CREATE DATABASE [ShopQuanAo]
  CONTAINMENT = NONE
  ON  PRIMARY 
@@ -87,7 +87,7 @@ ALTER DATABASE [ShopQuanAo] SET QUERY_STORE (OPERATION_MODE = READ_WRITE, CLEANU
 GO
 USE [ShopQuanAo]
 GO
-/****** Object:  Table [dbo].[ChiTietHoaDon]    Script Date: 9/22/2024 9:21:13 PM ******/
+/****** Object:  Table [dbo].[ChiTietHoaDon]    Script Date: 9/22/2024 11:00:48 PM ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -104,7 +104,24 @@ CREATE TABLE [dbo].[ChiTietHoaDon](
 )WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
 ) ON [PRIMARY]
 GO
-/****** Object:  Table [dbo].[DanhSachNhanVien]    Script Date: 9/22/2024 9:21:14 PM ******/
+/****** Object:  Table [dbo].[ChiTietPhieuNhap]    Script Date: 9/22/2024 11:00:48 PM ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+CREATE TABLE [dbo].[ChiTietPhieuNhap](
+	[ID_Phieu] [nvarchar](20) NOT NULL,
+	[Ma_SP] [nvarchar](20) NOT NULL,
+	[Gia] [nvarchar](20) NOT NULL,
+	[SoLuong] [int] NOT NULL,
+	[ThanhTien] [nvarchar](20) NOT NULL,
+ CONSTRAINT [PK_ChiTietPhieuNhap] PRIMARY KEY CLUSTERED 
+(
+	[ID_Phieu] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
+) ON [PRIMARY]
+GO
+/****** Object:  Table [dbo].[DanhSachNhanVien]    Script Date: 9/22/2024 11:00:48 PM ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -124,7 +141,7 @@ CREATE TABLE [dbo].[DanhSachNhanVien](
 )WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
 ) ON [PRIMARY]
 GO
-/****** Object:  Table [dbo].[HoaDon]    Script Date: 9/22/2024 9:21:14 PM ******/
+/****** Object:  Table [dbo].[HoaDon]    Script Date: 9/22/2024 11:00:48 PM ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -145,7 +162,7 @@ CREATE TABLE [dbo].[HoaDon](
 )WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
 ) ON [PRIMARY]
 GO
-/****** Object:  Table [dbo].[KhachHang]    Script Date: 9/22/2024 9:21:14 PM ******/
+/****** Object:  Table [dbo].[KhachHang]    Script Date: 9/22/2024 11:00:48 PM ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -161,7 +178,7 @@ CREATE TABLE [dbo].[KhachHang](
 )WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
 ) ON [PRIMARY]
 GO
-/****** Object:  Table [dbo].[MatHang]    Script Date: 9/22/2024 9:21:14 PM ******/
+/****** Object:  Table [dbo].[MatHang]    Script Date: 9/22/2024 11:00:48 PM ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -178,7 +195,42 @@ CREATE TABLE [dbo].[MatHang](
 )WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
 ) ON [PRIMARY]
 GO
-/****** Object:  Table [dbo].[TaiKhoan]    Script Date: 9/22/2024 9:21:14 PM ******/
+/****** Object:  Table [dbo].[NhaCungCap]    Script Date: 9/22/2024 11:00:48 PM ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+CREATE TABLE [dbo].[NhaCungCap](
+	[Ma_NCC] [nvarchar](20) NOT NULL,
+	[Ten_NCC] [nvarchar](50) NOT NULL,
+ CONSTRAINT [PK_NhaCungCap] PRIMARY KEY CLUSTERED 
+(
+	[Ma_NCC] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
+) ON [PRIMARY]
+GO
+/****** Object:  Table [dbo].[PhieuNhap]    Script Date: 9/22/2024 11:00:48 PM ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+CREATE TABLE [dbo].[PhieuNhap](
+	[ID_Phieu] [nvarchar](20) NOT NULL,
+	[Ma_NV] [nvarchar](20) NOT NULL,
+	[Ma_NCC] [nvarchar](20) NOT NULL,
+	[NgayNhap] [datetime] NOT NULL,
+	[TienHang] [nvarchar](20) NOT NULL,
+	[PhiShip] [nvarchar](20) NOT NULL,
+	[TienThue] [nvarchar](20) NOT NULL,
+	[ChiPhiKhac] [nvarchar](20) NOT NULL,
+	[ThanhTien] [nvarchar](20) NOT NULL,
+ CONSTRAINT [PK_PhieuNhap] PRIMARY KEY CLUSTERED 
+(
+	[ID_Phieu] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
+) ON [PRIMARY]
+GO
+/****** Object:  Table [dbo].[TaiKhoan]    Script Date: 9/22/2024 11:00:48 PM ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
