@@ -21,5 +21,11 @@ namespace ShopQuanAo
         {
 
         }
+
+        private void listView2_ItemActivate(object sender, EventArgs e)
+        {
+            ChiTietPhieuNhap formChiTietPN = new ChiTietPhieuNhap(this);
+            formChiTietPN.Show();
+        }
     }
 }

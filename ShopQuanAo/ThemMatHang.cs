@@ -12,9 +12,14 @@ namespace ShopQuanAo
 {
     public partial class ThemMatHang : Form
     {
-        public ThemMatHang()
+        public ThemMatHang(ChiTietDSMatHang form1)
         {
             InitializeComponent();
+        }
+
+        private void ThemMatHang_Load(object sender, EventArgs e)
+        {
+
         }
     }
 }

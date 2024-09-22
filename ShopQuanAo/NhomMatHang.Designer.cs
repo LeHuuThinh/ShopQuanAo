@@ -28,6 +28,18 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.Windows.Forms.ListViewItem listViewItem1 = new System.Windows.Forms.ListViewItem(new string[] {
+            "Áo ba lỗ ",
+            "AF003"}, -1);
+            System.Windows.Forms.ListViewItem listViewItem2 = new System.Windows.Forms.ListViewItem(new string[] {
+            "Áo trend",
+            "BF227"}, -1);
+            System.Windows.Forms.ListViewItem listViewItem3 = new System.Windows.Forms.ListViewItem(new string[] {
+            "Quần tây",
+            "AG112"}, -1);
+            System.Windows.Forms.ListViewItem listViewItem4 = new System.Windows.Forms.ListViewItem(new string[] {
+            "Quần đùi",
+            "AG120"}, -1);
             this.label1 = new System.Windows.Forms.Label();
             this.textBox1 = new System.Windows.Forms.TextBox();
             this.textBox2 = new System.Windows.Forms.TextBox();
@@ -48,48 +60,54 @@
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(321, 13);
+            this.label1.Location = new System.Drawing.Point(241, 11);
+            this.label1.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(125, 16);
+            this.label1.Size = new System.Drawing.Size(102, 13);
             this.label1.TabIndex = 1;
             this.label1.Text = "Tên nhóm mặt hàng";
             // 
             // textBox1
             // 
-            this.textBox1.Location = new System.Drawing.Point(324, 32);
+            this.textBox1.Location = new System.Drawing.Point(243, 26);
+            this.textBox1.Margin = new System.Windows.Forms.Padding(2);
             this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(464, 22);
+            this.textBox1.Size = new System.Drawing.Size(349, 20);
             this.textBox1.TabIndex = 2;
             // 
             // textBox2
             // 
-            this.textBox2.Location = new System.Drawing.Point(324, 85);
+            this.textBox2.Location = new System.Drawing.Point(243, 69);
+            this.textBox2.Margin = new System.Windows.Forms.Padding(2);
             this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(464, 22);
+            this.textBox2.Size = new System.Drawing.Size(349, 20);
             this.textBox2.TabIndex = 4;
             // 
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(321, 66);
+            this.label2.Location = new System.Drawing.Point(241, 54);
+            this.label2.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(145, 16);
+            this.label2.Size = new System.Drawing.Size(123, 13);
             this.label2.TabIndex = 3;
             this.label2.Text = "Mã nhóm (in hoa 5 kí tự)";
             // 
             // textBox3
             // 
-            this.textBox3.Location = new System.Drawing.Point(324, 138);
+            this.textBox3.Location = new System.Drawing.Point(243, 112);
+            this.textBox3.Margin = new System.Windows.Forms.Padding(2);
             this.textBox3.Name = "textBox3";
-            this.textBox3.Size = new System.Drawing.Size(464, 22);
+            this.textBox3.Size = new System.Drawing.Size(349, 20);
             this.textBox3.TabIndex = 6;
             // 
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(321, 119);
+            this.label3.Location = new System.Drawing.Point(241, 97);
+            this.label3.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(38, 16);
+            this.label3.Size = new System.Drawing.Size(33, 13);
             this.label3.TabIndex = 5;
             this.label3.Text = "Lưu ý";
             // 
@@ -98,36 +116,40 @@
             this.checkBox1.AutoSize = true;
             this.checkBox1.Checked = true;
             this.checkBox1.CheckState = System.Windows.Forms.CheckState.Checked;
-            this.checkBox1.Location = new System.Drawing.Point(324, 176);
+            this.checkBox1.Location = new System.Drawing.Point(243, 143);
+            this.checkBox1.Margin = new System.Windows.Forms.Padding(2);
             this.checkBox1.Name = "checkBox1";
-            this.checkBox1.Size = new System.Drawing.Size(124, 20);
+            this.checkBox1.Size = new System.Drawing.Size(104, 17);
             this.checkBox1.TabIndex = 7;
             this.checkBox1.Text = "Đang hoạt động";
             this.checkBox1.UseVisualStyleBackColor = true;
             // 
             // button1
             // 
-            this.button1.Location = new System.Drawing.Point(441, 317);
+            this.button1.Location = new System.Drawing.Point(331, 258);
+            this.button1.Margin = new System.Windows.Forms.Padding(2);
             this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(106, 34);
+            this.button1.Size = new System.Drawing.Size(80, 28);
             this.button1.TabIndex = 8;
             this.button1.Text = "Xóa trống";
             this.button1.UseVisualStyleBackColor = true;
             // 
             // button2
             // 
-            this.button2.Location = new System.Drawing.Point(562, 317);
+            this.button2.Location = new System.Drawing.Point(422, 258);
+            this.button2.Margin = new System.Windows.Forms.Padding(2);
             this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(106, 34);
+            this.button2.Size = new System.Drawing.Size(80, 28);
             this.button2.TabIndex = 9;
             this.button2.Text = "Lưu";
             this.button2.UseVisualStyleBackColor = true;
             // 
             // button3
             // 
-            this.button3.Location = new System.Drawing.Point(685, 317);
+            this.button3.Location = new System.Drawing.Point(514, 258);
+            this.button3.Margin = new System.Windows.Forms.Padding(2);
             this.button3.Name = "button3";
-            this.button3.Size = new System.Drawing.Size(106, 34);
+            this.button3.Size = new System.Drawing.Size(80, 28);
             this.button3.TabIndex = 10;
             this.button3.Text = "Đóng";
             this.button3.UseVisualStyleBackColor = true;
@@ -135,9 +157,11 @@
             // groupBox1
             // 
             this.groupBox1.Controls.Add(this.listView1);
-            this.groupBox1.Location = new System.Drawing.Point(2, 7);
+            this.groupBox1.Location = new System.Drawing.Point(2, 6);
+            this.groupBox1.Margin = new System.Windows.Forms.Padding(2);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(302, 349);
+            this.groupBox1.Padding = new System.Windows.Forms.Padding(2);
+            this.groupBox1.Size = new System.Drawing.Size(226, 284);
             this.groupBox1.TabIndex = 11;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Danh sách nhóm mặt hàng";
@@ -152,9 +176,19 @@
             this.listView1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.listView1.GridLines = true;
             this.listView1.HideSelection = false;
-            this.listView1.Location = new System.Drawing.Point(3, 18);
+            listViewItem1.StateImageIndex = 0;
+            listViewItem2.StateImageIndex = 0;
+            listViewItem3.StateImageIndex = 0;
+            listViewItem4.StateImageIndex = 0;
+            this.listView1.Items.AddRange(new System.Windows.Forms.ListViewItem[] {
+            listViewItem1,
+            listViewItem2,
+            listViewItem3,
+            listViewItem4});
+            this.listView1.Location = new System.Drawing.Point(2, 15);
+            this.listView1.Margin = new System.Windows.Forms.Padding(2);
             this.listView1.Name = "listView1";
-            this.listView1.Size = new System.Drawing.Size(296, 328);
+            this.listView1.Size = new System.Drawing.Size(222, 267);
             this.listView1.TabIndex = 1;
             this.listView1.UseCompatibleStateImageBehavior = false;
             this.listView1.View = System.Windows.Forms.View.Details;
@@ -162,6 +196,7 @@
             // columnHeader1
             // 
             this.columnHeader1.Text = "Tên nhóm";
+            this.columnHeader1.Width = 160;
             // 
             // columnHeader2
             // 
@@ -169,9 +204,9 @@
             // 
             // NhomMatHang
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(800, 363);
+            this.ClientSize = new System.Drawing.Size(600, 295);
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.button3);
             this.Controls.Add(this.button2);
@@ -183,6 +218,7 @@
             this.Controls.Add(this.label2);
             this.Controls.Add(this.textBox1);
             this.Controls.Add(this.label1);
+            this.Margin = new System.Windows.Forms.Padding(2);
             this.Name = "NhomMatHang";
             this.Text = "NhomMatHang";
             this.Load += new System.EventHandler(this.NhomMatHang_Load);

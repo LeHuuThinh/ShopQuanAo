@@ -12,9 +12,14 @@ namespace ShopQuanAo
 {
     public partial class ChiTietPhieuNhap : Form
     {
-        public ChiTietPhieuNhap()
+        public ChiTietPhieuNhap(DSNhapHang form1)
         {
             InitializeComponent();
+        }
+
+        private void ChiTietPhieuNhap_Load(object sender, EventArgs e)
+        {
+
         }
     }
 }

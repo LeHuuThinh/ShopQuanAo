@@ -21,5 +21,11 @@ namespace ShopQuanAo
         {
 
         }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            ThemMatHang formThemMH = new ThemMatHang(this);
+            formThemMH.Show();
+        }
     }
 }
