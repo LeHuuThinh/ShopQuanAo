@@ -11,42 +11,51 @@ using System.Windows.Forms;
 
 namespace ShopQuanAo
 {
-    public partial class ThemMatHang : Form
+    public partial class CapNhatMatHang : Form
     {
-        public delegate void MatHangAddedHandler(string maSP, string tenSP, string giaSi, string giaLe, int slSP);
-        public event MatHangAddedHandler MatHangAdded;
+        // Khai báo delegate và event để truyền dữ liệu cập nhật về Form1
+        public delegate void UpdateMatHangHandler(string maSP, string tenSP, string giaSi, string giaLe, int slSP);
+        public event UpdateMatHangHandler UpdateMatHangCompleted;
 
-        
-
-        public ThemMatHang(ChiTietDSMatHang form1)
+        private string maSP;
+        public CapNhatMatHang(string maSP, string tenSP, string giaSi, string giaLe, string slSP)
         {
             InitializeComponent();
+
+            // Gán thông tin mặt hàng vào các textbox
+            this.maSP = maSP;
+            txtMaSP.Text = maSP;
+            txtTenSP.Text = tenSP;
+            txtGiaSi.Text = giaSi;
+            txtGiaLe.Text = giaLe;
+            txtSLSP.Text = slSP;
+
+            // Khóa textbox mã sản phẩm
+            txtMaSP.ReadOnly = true;
         }
 
-        private void ThemMatHang_Load(object sender, EventArgs e)
+
+        private void CapNhatMatHang_Load(object sender, EventArgs e)
         {
 
         }
-
-        
-
         private void btnExit_Click(object sender, EventArgs e)
         {
             this.Close();
+
         }
 
-        private void btnSaveNExit_Click(object sender, EventArgs e)
+        private void btnSaveUpdate_Click(object sender, EventArgs e)
         {
             // Lấy dữ liệu từ các textbox
-            string maSP = txtMaSP.Text.Trim();
             string tenSP = txtTenSP.Text.Trim();
             string giaSi = txtGiaSi.Text.Trim();
             string giaLe = txtGiaLe.Text.Trim();
             string slSPText = txtSLSP.Text.Trim();
 
             // Kiểm tra dữ liệu hợp lệ
-            if (string.IsNullOrEmpty(maSP) || string.IsNullOrEmpty(tenSP) || string.IsNullOrEmpty(giaSi) ||
-                string.IsNullOrEmpty(giaLe) || string.IsNullOrEmpty(slSPText) || !int.TryParse(slSPText, out int slSP))
+            if (string.IsNullOrEmpty(tenSP) || string.IsNullOrEmpty(giaSi) || string.IsNullOrEmpty(giaLe) ||
+                string.IsNullOrEmpty(slSPText) || !int.TryParse(slSPText, out int slSP))
             {
                 MessageBox.Show("Vui lòng nhập đầy đủ và đúng định dạng dữ liệu.", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 return;
@@ -56,8 +65,8 @@ namespace ShopQuanAo
             string connectionString = "Server=.\\SQLEXPRESS;Database=ShopQuanAo;Trusted_Connection=True;";
 
 
-            // Lưu vào cơ sở dữ liệu
-            string query = "INSERT INTO MatHang (Ma_SP, Ten_SP, GiaSi, GiaLe, SL_SP) VALUES (@MaSP, @TenSP, @GiaSi, @GiaLe, @SLSP)";
+            // Cập nhật cơ sở dữ liệu
+            string query = "UPDATE MatHang SET Ten_SP = @TenSP, GiaSi = @GiaSi, GiaLe = @GiaLe, SL_SP = @SLSP WHERE Ma_SP = @MaSP";
 
             using (SqlConnection connection = new SqlConnection(connectionString))
             {
@@ -75,16 +84,16 @@ namespace ShopQuanAo
                     if (rowsAffected > 0)
                     {
                         // Gửi dữ liệu về Form1 thông qua event
-                        MatHangAdded?.Invoke(maSP, tenSP, giaSi, giaLe, slSP);
+                        UpdateMatHangCompleted?.Invoke(maSP, tenSP, giaSi, giaLe, slSP);
 
-                        // Hiển thị thông báo và đóng form
-                        MessageBox.Show("Thêm mặt hàng thành công!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        // Thông báo thành công và đóng form
+                        MessageBox.Show("Cập nhật mặt hàng thành công!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
                         this.Close();
                     }
                 }
                 catch (Exception ex)
                 {
-                    MessageBox.Show("Lỗi khi thêm mặt hàng: " + ex.Message, "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    MessageBox.Show("Lỗi khi cập nhật mặt hàng: " + ex.Message, "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
             }
         }

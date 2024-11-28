@@ -158,6 +158,7 @@ CREATE TABLE [dbo].[HoaDon](
 	[NgayLap] [datetime] NOT NULL,
 	[KH] [nvarchar](30) NOT NULL,
 	[SDT] [nvarchar](20) NOT NULL,
+	[DiaChi] [nvarchar](20) NOT NULL,
 	[TongTien] [nvarchar](20) NOT NULL,
 	[PhiShip] [nvarchar](20) NOT NULL,
 	[TongThanhToan] [nvarchar](20) NOT NULL,
@@ -170,9 +171,10 @@ GO
 
 
 ----
-INSERT [dbo].[HoaDon]([Ma_HD],[Ma_NV],[NgayLap],[KH],[SDT],[TongTien],[PhiShip],[TongThanhToan]) VALUES (N'HD001',N'0112',N'01/02/2024',N'Quốc Huy',N'0123456789',N'245000',N'15000',N'260000')
-INSERT [dbo].[HoaDon]([Ma_HD],[Ma_NV],[NgayLap],[KH],[SDT],[TongTien],[PhiShip],[TongThanhToan]) VALUES (N'HD002',N'0113',N'04/10/2024',N'Hừng Vĩnh',N'0555567892',N'400000',N'20000',N'420000')
-INSERT [dbo].[HoaDon]([Ma_HD],[Ma_NV],[NgayLap],[KH],[SDT],[TongTien],[PhiShip],[TongThanhToan]) VALUES (N'HD003',N'0122',N'21/12/2024',N'Chill Guy',N'0312666211',N'137000',N'13000',N'150000')
+INSERT [dbo].[HoaDon]([Ma_HD],[Ma_NV],[NgayLap],[KH],[SDT],[DiaChi],[TongTien],[PhiShip],[TongThanhToan]) VALUES (N'HD001',N'0112',N'01/02/2024',N'Quốc Huy',N'0123456789',N'01 Hẻm Ma Đạo',N'245000',N'15000',N'260000')
+INSERT [dbo].[HoaDon]([Ma_HD],[Ma_NV],[NgayLap],[KH],[SDT],[DiaChi],[TongTien],[PhiShip],[TongThanhToan]) VALUES (N'HD002',N'0113',N'04/10/2024',N'Hừng Vĩnh',N'0555567892',N'56 Ngô Quyền',N'400000',N'20000',N'420000')
+INSERT [dbo].[HoaDon]([Ma_HD],[Ma_NV],[NgayLap],[KH],[SDT],[DiaChi],[TongTien],[PhiShip],[TongThanhToan]) VALUES (N'HD003',N'0112',N'21/12/2024',N'Chill Guy',N'0312666211',N'17 Phan Đình Phùng',N'137000',N'13000',N'150000')
+INSERT [dbo].[HoaDon]([Ma_HD],[Ma_NV],[NgayLap],[KH],[SDT],[DiaChi],[TongTien],[PhiShip],[TongThanhToan]) VALUES (N'HD004',N'0111',N'11/28/2024',N'Thịnh Lễ Hưu',N'09885426461',N'23 Hai Bà Trừng',N'430000',N'23000',N'453000')
 
 SELECT * FROM [HoaDon]
 
@@ -222,6 +224,12 @@ INSERT [dbo].[MatHang]([Ma_SP],[Ten_SP],[GiaSi],[GiaLe],[SL_SP]) VALUES (N'Q06',
 INSERT [dbo].[MatHang]([Ma_SP],[Ten_SP],[GiaSi],[GiaLe],[SL_SP]) VALUES (N'Q07',N'Quần boy phố',70000,75000,11)
 INSERT [dbo].[MatHang]([Ma_SP],[Ten_SP],[GiaSi],[GiaLe],[SL_SP]) VALUES (N'A05',N'Áo capybara',100000,120000,22)
 INSERT [dbo].[MatHang]([Ma_SP],[Ten_SP],[GiaSi],[GiaLe],[SL_SP]) VALUES (N'A06',N'Áo quân đội',150000,165000,3)
+INSERT [dbo].[MatHang]([Ma_SP],[Ten_SP],[GiaSi],[GiaLe],[SL_SP]) VALUES (N'A08',N'Áo hoodie',125000,132000,36)
+INSERT [dbo].[MatHang]([Ma_SP],[Ten_SP],[GiaSi],[GiaLe],[SL_SP]) VALUES (N'A10',N'Áo caro',75000,80000,15)
+INSERT [dbo].[MatHang]([Ma_SP],[Ten_SP],[GiaSi],[GiaLe],[SL_SP]) VALUES (N'Q07',N'Quần gấu',50000,55000,7)
+INSERT [dbo].[MatHang]([Ma_SP],[Ten_SP],[GiaSi],[GiaLe],[SL_SP]) VALUES (N'Q07',N'Quần đùi',45000,50000,31)
+INSERT [dbo].[MatHang]([Ma_SP],[Ten_SP],[GiaSi],[GiaLe],[SL_SP]) VALUES (N'Q07',N'Quần dài',35000,38000,13)
+INSERT [dbo].[MatHang]([Ma_SP],[Ten_SP],[GiaSi],[GiaLe],[SL_SP]) VALUES (N'A11',N'Áo siêu nhân',195000,210000,44)
 
 SELECT * FROM [MatHang]
 
@@ -239,6 +247,35 @@ CREATE TABLE [dbo].[NhaCungCap](
 )WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
 ) ON [PRIMARY]
 GO
+
+USE [ShopQuanAo]
+GO
+
+/****** Object:  Table [dbo].[NhomMatHang]    Script Date: 11/28/2024 4:14:30 PM ******/
+SET ANSI_NULLS ON
+GO
+
+SET QUOTED_IDENTIFIER ON
+GO
+
+CREATE TABLE [dbo].[NhomMatHang](
+	[MaNhom] [nvarchar](20) NOT NULL,
+	[TenNhom] [nvarchar](50) NOT NULL,
+ CONSTRAINT [PK_NhomMatHang] PRIMARY KEY CLUSTERED 
+(
+	[MaNhom] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
+) ON [PRIMARY]
+GO
+
+INSERT [dbo].[NhomMatHang]([MaNhom],[TenNhom]) VALUES (N'M001',N'Áo xịn xò')
+INSERT [dbo].[NhomMatHang]([MaNhom],[TenNhom]) VALUES (N'M002',N'Áo tiktok')
+INSERT [dbo].[NhomMatHang]([MaNhom],[TenNhom]) VALUES (N'M003',N'Quần xịn xò')
+INSERT [dbo].[NhomMatHang]([MaNhom],[TenNhom]) VALUES (N'M004',N'Quần nhập khẩu')
+INSERT [dbo].[NhomMatHang]([MaNhom],[TenNhom]) VALUES (N'M005',N'Một mảnh')
+
+SELECT * FROM [NhomMatHang]
+
 /****** Object:  Table [dbo].[PhieuNhap]    Script Date: 9/22/2024 11:00:48 PM ******/
 SET ANSI_NULLS ON
 GO

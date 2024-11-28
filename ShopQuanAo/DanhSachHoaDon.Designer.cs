@@ -29,6 +29,7 @@
         private void InitializeComponent()
         {
             this.grbTKHD = new System.Windows.Forms.GroupBox();
+            this.btnDelete = new System.Windows.Forms.Button();
             this.label7 = new System.Windows.Forms.Label();
             this.btnSearch = new System.Windows.Forms.Button();
             this.comboBox2 = new System.Windows.Forms.ComboBox();
@@ -54,7 +55,7 @@
             this.columnHeader8 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.columnHeader10 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.columnHeader11 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.btnDelete = new System.Windows.Forms.Button();
+            this.columnHeader7 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.grbTKHD.SuspendLayout();
             this.grbDSHD.SuspendLayout();
             this.SuspendLayout();
@@ -84,6 +85,17 @@
             this.grbTKHD.TabIndex = 0;
             this.grbTKHD.TabStop = false;
             this.grbTKHD.Text = "Tìm hóa đơn theo";
+            // 
+            // btnDelete
+            // 
+            this.btnDelete.Location = new System.Drawing.Point(1038, 71);
+            this.btnDelete.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.btnDelete.Name = "btnDelete";
+            this.btnDelete.Size = new System.Drawing.Size(109, 34);
+            this.btnDelete.TabIndex = 14;
+            this.btnDelete.Text = "Xóa";
+            this.btnDelete.UseVisualStyleBackColor = true;
+            this.btnDelete.Click += new System.EventHandler(this.btnDelete_Click);
             // 
             // label7
             // 
@@ -229,6 +241,7 @@
             this.columnHeader3,
             this.columnHeader4,
             this.columnHeader5,
+            this.columnHeader7,
             this.columnHeader6,
             this.columnHeader8,
             this.columnHeader10,
@@ -249,17 +262,17 @@
             // columnHeader1
             // 
             this.columnHeader1.Text = "Mã đơn";
-            this.columnHeader1.Width = 50;
+            this.columnHeader1.Width = 80;
             // 
             // columnHeader2
             // 
             this.columnHeader2.Text = "Mã nhân viên";
-            this.columnHeader2.Width = 50;
+            this.columnHeader2.Width = 100;
             // 
             // columnHeader3
             // 
             this.columnHeader3.Text = "Ngày lập";
-            this.columnHeader3.Width = 70;
+            this.columnHeader3.Width = 100;
             // 
             // columnHeader4
             // 
@@ -269,38 +282,32 @@
             // columnHeader5
             // 
             this.columnHeader5.Text = "SDT";
-            this.columnHeader5.Width = 75;
+            this.columnHeader5.Width = 100;
             // 
             // columnHeader6
             // 
             this.columnHeader6.Text = "Tiền hàng";
-            this.columnHeader6.Width = 70;
+            this.columnHeader6.Width = 100;
             // 
             // columnHeader8
             // 
             this.columnHeader8.Text = "Phí ship";
-            this.columnHeader8.Width = 70;
+            this.columnHeader8.Width = 100;
             // 
             // columnHeader10
             // 
             this.columnHeader10.Text = "Thành tiền";
-            this.columnHeader10.Width = 70;
+            this.columnHeader10.Width = 100;
             // 
             // columnHeader11
             // 
             this.columnHeader11.Text = "Ghi chú";
             this.columnHeader11.Width = 120;
             // 
-            // btnDelete
+            // columnHeader7
             // 
-            this.btnDelete.Location = new System.Drawing.Point(1038, 71);
-            this.btnDelete.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.btnDelete.Name = "btnDelete";
-            this.btnDelete.Size = new System.Drawing.Size(109, 34);
-            this.btnDelete.TabIndex = 14;
-            this.btnDelete.Text = "Xóa";
-            this.btnDelete.UseVisualStyleBackColor = true;
-            this.btnDelete.Click += new System.EventHandler(this.btnDelete_Click);
+            this.columnHeader7.Text = "Địa chỉ";
+            this.columnHeader7.Width = 120;
             // 
             // DanhSachHoaDon
             // 
@@ -349,5 +356,6 @@
         private System.Windows.Forms.ColumnHeader columnHeader10;
         private System.Windows.Forms.ColumnHeader columnHeader11;
         private System.Windows.Forms.Button btnDelete;
+        private System.Windows.Forms.ColumnHeader columnHeader7;
     }
 }

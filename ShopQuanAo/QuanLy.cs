@@ -182,62 +182,7 @@ namespace ShopQuanAo
             }
         }
 
-        private void btnDelete_Click(object sender, EventArgs e)
-        {
-            // Kiểm tra xem có mục nào được chọn hay không
-            if (lvMatHang.SelectedItems.Count == 0)
-            {
-                MessageBox.Show("Vui lòng chọn sản phẩm cần xóa!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                return;
-            }
-
-            // Lấy Mã SP của mục được chọn
-            string maSP = lvMatHang.SelectedItems[0].Text; // Lấy giá trị từ cột đầu tiên (Ma_SP)
-
-            // Xác nhận xóa
-            DialogResult result = MessageBox.Show(
-                $"Bạn có chắc muốn xóa sản phẩm có mã '{maSP}'?",
-                "Xác nhận xóa",
-                MessageBoxButtons.YesNo,
-                MessageBoxIcon.Question
-            );
-
-            if (result == DialogResult.Yes)
-            {
-                string connectionString = "Server=.\\SQLEXPRESS;Database=ShopQuanAo;Trusted_Connection=True;";
-
-                string query = "DELETE FROM MatHang WHERE Ma_SP = @maSP";
-
-                try
-                {
-                    using (SqlConnection connection = new SqlConnection(connectionString))
-                    {
-                        connection.Open();
-                        using (SqlCommand command = new SqlCommand(query, connection))
-                        {
-                            // Thêm tham số
-                            command.Parameters.AddWithValue("@maSP", maSP);
-
-                            int rowsAffected = command.ExecuteNonQuery();
-                            if (rowsAffected > 0)
-                            {
-                                MessageBox.Show("Xóa sản phẩm thành công!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                                // Xóa mục khỏi ListView
-                                lvMatHang.Items.Remove(lvMatHang.SelectedItems[0]);
-                            }
-                            else
-                            {
-                                MessageBox.Show("Không tìm thấy sản phẩm để xóa trong cơ sở dữ liệu!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                            }
-                        }
-                    }
-                }
-                catch (Exception ex)
-                {
-                    MessageBox.Show($"Lỗi khi xóa: {ex.Message}", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                }
-            }
-        }
+        
 
         private void btnExit_Click(object sender, EventArgs e)
         {
@@ -249,8 +194,8 @@ namespace ShopQuanAo
             txtHD_HoTen.Text = "";
             txtHD_SDT.Text = "";
             lvHD_Hang.Items.Clear();
-            txtHD_Status.Text = "";
             txtHD_MaNV.Text = "";
+            txtHD_DiaChi.Text = "";
             txtHD_TongTien.Text = "";
             txtHD_Note.Text = "";
             txtHD_Ship.Text = "";
@@ -356,6 +301,7 @@ namespace ShopQuanAo
             DateTime ngayLap = dtpHD_NgayLap.Value;
             string khachHang = txtHD_HoTen.Text.Trim();
             string sdt = txtHD_SDT.Text.Trim();
+            string diaChi = txtHD_DiaChi.Text.Trim();
             string tongTien = txtHD_TongTien.Text.Trim();
             string phiShip = txtHD_Ship.Text.Trim();
             string tongThanhToan = txtHD_Total.Text.Trim();
@@ -365,8 +311,8 @@ namespace ShopQuanAo
 
 
             // Câu lệnh SQL Insert
-            string query = "INSERT INTO HoaDon (Ma_HD, Ma_NV, NgayLap, KH, SDT, TongTien, PhiShip, TongThanhToan) " +
-                           "VALUES (@MaHD, @MaNV, @NgayLap, @KH, @SDT, @TongTien, @PhiShip, @TongThanhToan)";
+            string query = "INSERT INTO HoaDon (Ma_HD, Ma_NV, NgayLap, KH, SDT, DiaChi, TongTien, PhiShip, TongThanhToan) " +
+                           "VALUES (@MaHD, @MaNV, @NgayLap, @KH, @SDT, @DiaChi, @TongTien, @PhiShip, @TongThanhToan)";
 
             using (SqlConnection connection = new SqlConnection(connectionString))
             {
@@ -381,6 +327,7 @@ namespace ShopQuanAo
                     command.Parameters.AddWithValue("@NgayLap", ngayLap);
                     command.Parameters.AddWithValue("@KH", khachHang);
                     command.Parameters.AddWithValue("@SDT", sdt);
+                    command.Parameters.AddWithValue("@DiaChi", diaChi);
                     command.Parameters.AddWithValue("@TongTien", tongTien);
                     command.Parameters.AddWithValue("@PhiShip", phiShip);
                     command.Parameters.AddWithValue("@TongThanhToan", tongThanhToan);
@@ -395,7 +342,7 @@ namespace ShopQuanAo
                     DanhSachHoaDon formDSHD = Application.OpenForms["Form2"] as DanhSachHoaDon;
                     if (formDSHD != null)
                     {
-                        formDSHD.AddToListView(maHD, maNV, ngayLap, khachHang, sdt, tongTien, phiShip, tongThanhToan);
+                        formDSHD.AddToListView(maHD, maNV, ngayLap, khachHang, sdt, diaChi, tongTien, phiShip, tongThanhToan);
                     }
                 }
                 catch (Exception ex)

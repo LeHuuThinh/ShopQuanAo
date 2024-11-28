@@ -35,7 +35,7 @@ namespace ShopQuanAo
         private void LoadHoaDon()
         {
             string connectionString = "Server=.\\SQLEXPRESS;Database=ShopQuanAo;Trusted_Connection=True;";
-            string query = "SELECT Ma_HD, Ma_NV, NgayLap, KH, SDT, TongTien, PhiShip, TongThanhToan FROM HoaDon";
+            string query = "SELECT Ma_HD, Ma_NV, NgayLap, KH, SDT, DiaChi, TongTien, PhiShip, TongThanhToan FROM HoaDon";
 
             try
             {
@@ -54,6 +54,7 @@ namespace ShopQuanAo
                             string ngayLap = Convert.ToDateTime(reader["NgayLap"]).ToString("dd/MM/yyyy");
                             string KH = reader["KH"].ToString();
                             string SDT = reader["SDT"].ToString();
+                            string diaChi = reader["DiaChi"].ToString();
                             string tongTien = reader["TongTien"].ToString();
                             string phiShip = reader["PhiShip"].ToString();
                             string tongThanhToan = reader["TongThanhToan"].ToString();
@@ -64,6 +65,7 @@ namespace ShopQuanAo
                             item.SubItems.Add(ngayLap);
                             item.SubItems.Add(KH);
                             item.SubItems.Add(SDT);
+                            item.SubItems.Add(diaChi);
                             item.SubItems.Add(tongTien);
                             item.SubItems.Add(phiShip);
                             item.SubItems.Add(tongThanhToan);
@@ -80,7 +82,7 @@ namespace ShopQuanAo
             }
         }
 
-        public void AddToListView(string maHD, string maNV, DateTime ngayLap, string khachHang, string sdt, string tongTien, string phiShip, string tongThanhToan)
+        public void AddToListView(string maHD, string maNV, DateTime ngayLap, string khachHang, string sdt, string diaChi, string tongTien, string phiShip, string tongThanhToan)
         {
             // Tạo một dòng mới (ListViewItem)
             ListViewItem item = new ListViewItem(maHD);

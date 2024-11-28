@@ -48,3 +48,4 @@ C:\2.tapcodedienloan\Winform\ShopQuanAo\ShopQuanAo\obj\Debug\ShopQuanAo.BaoCaoDo
 C:\2.tapcodedienloan\Winform\ShopQuanAo\ShopQuanAo\obj\Debug\ShopQuanAo.MatHangSapHet.resources
 C:\2.tapcodedienloan\Winform\ShopQuanAo\ShopQuanAo\obj\Debug\ShopQuanAo.QuanLyTaiKhoan.resources
 C:\2.tapcodedienloan\Winform\ShopQuanAo\ShopQuanAo\obj\Debug\ShopQuanAo.DoiMatKhau.resources
+C:\2.tapcodedienloan\Winform\ShopQuanAo\ShopQuanAo\obj\Debug\ShopQuanAo.CapNhatMatHang.resources

@@ -52,7 +52,8 @@
             this.columnHeader10 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.columnHeader11 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.columnHeader12 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.btnDelete = new System.Windows.Forms.Button();
+            this.contextMenuStrip1 = new System.Windows.Forms.ContextMenuStrip(this.components);
+            this.thêmVàoĐơnHàngToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.btnSearch = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
             this.txtSearch = new System.Windows.Forms.TextBox();
@@ -64,8 +65,6 @@
             this.btnCancel = new System.Windows.Forms.Button();
             this.txtHD_Note = new System.Windows.Forms.TextBox();
             this.label15 = new System.Windows.Forms.Label();
-            this.txtHD_Status = new System.Windows.Forms.TextBox();
-            this.label14 = new System.Windows.Forms.Label();
             this.txtHD_Total = new System.Windows.Forms.TextBox();
             this.label11 = new System.Windows.Forms.Label();
             this.txtHD_Ship = new System.Windows.Forms.TextBox();
@@ -83,24 +82,24 @@
             this.columnHeader6 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.columnHeader7 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.grbTTKH = new System.Windows.Forms.GroupBox();
-            this.txtHD_HoTen = new System.Windows.Forms.TextBox();
-            this.label2 = new System.Windows.Forms.Label();
-            this.contextMenuStrip1 = new System.Windows.Forms.ContextMenuStrip(this.components);
-            this.thêmVàoĐơnHàngToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.label4 = new System.Windows.Forms.Label();
-            this.txtHD_SDT = new System.Windows.Forms.TextBox();
-            this.txtHD_MaNV = new System.Windows.Forms.TextBox();
-            this.label3 = new System.Windows.Forms.Label();
             this.txtHD_MaHD = new System.Windows.Forms.TextBox();
             this.label5 = new System.Windows.Forms.Label();
+            this.txtHD_MaNV = new System.Windows.Forms.TextBox();
+            this.label3 = new System.Windows.Forms.Label();
+            this.txtHD_SDT = new System.Windows.Forms.TextBox();
+            this.label4 = new System.Windows.Forms.Label();
+            this.txtHD_HoTen = new System.Windows.Forms.TextBox();
+            this.label2 = new System.Windows.Forms.Label();
+            this.txtHD_DiaChi = new System.Windows.Forms.TextBox();
+            this.label6 = new System.Windows.Forms.Label();
             this.menuStrip1.SuspendLayout();
             this.grbMatHang.SuspendLayout();
             this.grbDSMH.SuspendLayout();
+            this.contextMenuStrip1.SuspendLayout();
             this.grbKhachHang.SuspendLayout();
             this.grbTKHD.SuspendLayout();
             this.grbDonHang.SuspendLayout();
             this.grbTTKH.SuspendLayout();
-            this.contextMenuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
             // menuStrip1
@@ -126,35 +125,35 @@
             this.menuChiTietDSMH,
             this.menuInMaVach});
             this.mộtToolStripMenuItem.Name = "mộtToolStripMenuItem";
-            this.mộtToolStripMenuItem.Size = new System.Drawing.Size(174, 24);
-            this.mộtToolStripMenuItem.Text = "Mặt hàng và Đơn hàng";
+            this.mộtToolStripMenuItem.Size = new System.Drawing.Size(126, 24);
+            this.mộtToolStripMenuItem.Text = "Nhập đơn hàng";
             // 
             // menuNhomMatHang
             // 
             this.menuNhomMatHang.Name = "menuNhomMatHang";
-            this.menuNhomMatHang.Size = new System.Drawing.Size(276, 26);
+            this.menuNhomMatHang.Size = new System.Drawing.Size(227, 26);
             this.menuNhomMatHang.Text = "Nhóm mặt hàng";
             this.menuNhomMatHang.Click += new System.EventHandler(this.menuNhomMatHang_Click);
             // 
             // menuChiTietDSMH
             // 
             this.menuChiTietDSMH.Name = "menuChiTietDSMH";
-            this.menuChiTietDSMH.Size = new System.Drawing.Size(276, 26);
-            this.menuChiTietDSMH.Text = "Chi tiết danh sách mặt hàng";
+            this.menuChiTietDSMH.Size = new System.Drawing.Size(227, 26);
+            this.menuChiTietDSMH.Text = "Danh sách mặt hàng";
             this.menuChiTietDSMH.Click += new System.EventHandler(this.menuChiTietDSMH_Click);
             // 
             // menuInMaVach
             // 
             this.menuInMaVach.Name = "menuInMaVach";
-            this.menuInMaVach.Size = new System.Drawing.Size(276, 26);
+            this.menuInMaVach.Size = new System.Drawing.Size(227, 26);
             this.menuInMaVach.Text = "In mã vạch";
             this.menuInMaVach.Click += new System.EventHandler(this.menuInMaVach_Click);
             // 
             // menuDSHD
             // 
             this.menuDSHD.Name = "menuDSHD";
-            this.menuDSHD.Size = new System.Drawing.Size(150, 24);
-            this.menuDSHD.Text = "Danh sách hóa đơn";
+            this.menuDSHD.Size = new System.Drawing.Size(158, 24);
+            this.menuDSHD.Text = "Danh sách đơn hàng";
             this.menuDSHD.Click += new System.EventHandler(this.menuDSHD_Click);
             // 
             // menuNhapHang3
@@ -192,14 +191,14 @@
             // menuBaoCaoDT
             // 
             this.menuBaoCaoDT.Name = "menuBaoCaoDT";
-            this.menuBaoCaoDT.Size = new System.Drawing.Size(217, 26);
+            this.menuBaoCaoDT.Size = new System.Drawing.Size(224, 26);
             this.menuBaoCaoDT.Text = "Báo cáo doanh thu";
             this.menuBaoCaoDT.Click += new System.EventHandler(this.menuBaoCaoDT_Click);
             // 
             // menuMHSapHet
             // 
             this.menuMHSapHet.Name = "menuMHSapHet";
-            this.menuMHSapHet.Size = new System.Drawing.Size(217, 26);
+            this.menuMHSapHet.Size = new System.Drawing.Size(224, 26);
             this.menuMHSapHet.Text = "Mặt hàng sắp hết";
             this.menuMHSapHet.Click += new System.EventHandler(this.menuMHSapHet_Click);
             // 
@@ -215,14 +214,14 @@
             // quảnLýTàiKhoảnToolStripMenuItem
             // 
             this.quảnLýTàiKhoảnToolStripMenuItem.Name = "quảnLýTàiKhoảnToolStripMenuItem";
-            this.quảnLýTàiKhoảnToolStripMenuItem.Size = new System.Drawing.Size(207, 26);
+            this.quảnLýTàiKhoảnToolStripMenuItem.Size = new System.Drawing.Size(224, 26);
             this.quảnLýTàiKhoảnToolStripMenuItem.Text = "Quản lý tài khoản";
             this.quảnLýTàiKhoảnToolStripMenuItem.Click += new System.EventHandler(this.quảnLýTàiKhoảnToolStripMenuItem_Click);
             // 
             // đổiMậtKhẩuToolStripMenuItem
             // 
             this.đổiMậtKhẩuToolStripMenuItem.Name = "đổiMậtKhẩuToolStripMenuItem";
-            this.đổiMậtKhẩuToolStripMenuItem.Size = new System.Drawing.Size(207, 26);
+            this.đổiMậtKhẩuToolStripMenuItem.Size = new System.Drawing.Size(224, 26);
             this.đổiMậtKhẩuToolStripMenuItem.Text = "Đổi mật khẩu";
             this.đổiMậtKhẩuToolStripMenuItem.Click += new System.EventHandler(this.đổiMậtKhẩuToolStripMenuItem_Click);
             // 
@@ -230,7 +229,6 @@
             // 
             this.grbMatHang.BackColor = System.Drawing.SystemColors.ControlLight;
             this.grbMatHang.Controls.Add(this.grbDSMH);
-            this.grbMatHang.Controls.Add(this.btnDelete);
             this.grbMatHang.Controls.Add(this.btnSearch);
             this.grbMatHang.Controls.Add(this.label1);
             this.grbMatHang.Controls.Add(this.txtSearch);
@@ -302,23 +300,27 @@
             this.columnHeader12.Text = "Số lượng còn";
             this.columnHeader12.Width = 78;
             // 
-            // btnDelete
+            // contextMenuStrip1
             // 
-            this.btnDelete.Location = new System.Drawing.Point(465, 36);
-            this.btnDelete.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.btnDelete.Name = "btnDelete";
-            this.btnDelete.Size = new System.Drawing.Size(75, 23);
-            this.btnDelete.TabIndex = 3;
-            this.btnDelete.Text = "Xóa";
-            this.btnDelete.UseVisualStyleBackColor = true;
-            this.btnDelete.Click += new System.EventHandler(this.btnDelete_Click);
+            this.contextMenuStrip1.ImageScalingSize = new System.Drawing.Size(20, 20);
+            this.contextMenuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.thêmVàoĐơnHàngToolStripMenuItem});
+            this.contextMenuStrip1.Name = "contextMenuStrip1";
+            this.contextMenuStrip1.Size = new System.Drawing.Size(216, 28);
+            // 
+            // thêmVàoĐơnHàngToolStripMenuItem
+            // 
+            this.thêmVàoĐơnHàngToolStripMenuItem.Name = "thêmVàoĐơnHàngToolStripMenuItem";
+            this.thêmVàoĐơnHàngToolStripMenuItem.Size = new System.Drawing.Size(215, 24);
+            this.thêmVàoĐơnHàngToolStripMenuItem.Text = "Thêm vào Đơn Hàng";
+            this.thêmVàoĐơnHàngToolStripMenuItem.Click += new System.EventHandler(this.thêmVàoĐơnHàngToolStripMenuItem_Click);
             // 
             // btnSearch
             // 
-            this.btnSearch.Location = new System.Drawing.Point(368, 36);
+            this.btnSearch.Location = new System.Drawing.Point(432, 37);
             this.btnSearch.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnSearch.Name = "btnSearch";
-            this.btnSearch.Size = new System.Drawing.Size(75, 23);
+            this.btnSearch.Size = new System.Drawing.Size(95, 23);
             this.btnSearch.TabIndex = 2;
             this.btnSearch.Text = "Tìm";
             this.btnSearch.UseVisualStyleBackColor = true;
@@ -339,7 +341,7 @@
             this.txtSearch.Location = new System.Drawing.Point(12, 37);
             this.txtSearch.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.txtSearch.Name = "txtSearch";
-            this.txtSearch.Size = new System.Drawing.Size(331, 22);
+            this.txtSearch.Size = new System.Drawing.Size(414, 22);
             this.txtSearch.TabIndex = 0;
             // 
             // grbKhachHang
@@ -367,8 +369,6 @@
             this.grbTKHD.Controls.Add(this.btnCancel);
             this.grbTKHD.Controls.Add(this.txtHD_Note);
             this.grbTKHD.Controls.Add(this.label15);
-            this.grbTKHD.Controls.Add(this.txtHD_Status);
-            this.grbTKHD.Controls.Add(this.label14);
             this.grbTKHD.Controls.Add(this.txtHD_Total);
             this.grbTKHD.Controls.Add(this.label11);
             this.grbTKHD.Controls.Add(this.txtHD_Ship);
@@ -446,23 +446,6 @@
             this.label15.TabIndex = 18;
             this.label15.Text = "Ghi chú";
             // 
-            // txtHD_Status
-            // 
-            this.txtHD_Status.Location = new System.Drawing.Point(499, 18);
-            this.txtHD_Status.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.txtHD_Status.Name = "txtHD_Status";
-            this.txtHD_Status.Size = new System.Drawing.Size(192, 22);
-            this.txtHD_Status.TabIndex = 13;
-            // 
-            // label14
-            // 
-            this.label14.AutoSize = true;
-            this.label14.Location = new System.Drawing.Point(369, 25);
-            this.label14.Name = "label14";
-            this.label14.Size = new System.Drawing.Size(93, 16);
-            this.label14.TabIndex = 12;
-            this.label14.Text = "Trạng thái đơn";
-            // 
             // txtHD_Total
             // 
             this.txtHD_Total.Location = new System.Drawing.Point(164, 97);
@@ -482,7 +465,7 @@
             // 
             // txtHD_Ship
             // 
-            this.txtHD_Ship.Location = new System.Drawing.Point(499, 60);
+            this.txtHD_Ship.Location = new System.Drawing.Point(499, 57);
             this.txtHD_Ship.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.txtHD_Ship.Name = "txtHD_Ship";
             this.txtHD_Ship.Size = new System.Drawing.Size(191, 22);
@@ -492,7 +475,7 @@
             // label10
             // 
             this.label10.AutoSize = true;
-            this.label10.Location = new System.Drawing.Point(370, 63);
+            this.label10.Location = new System.Drawing.Point(373, 60);
             this.label10.Name = "label10";
             this.label10.Size = new System.Drawing.Size(109, 16);
             this.label10.TabIndex = 8;
@@ -548,7 +531,6 @@
             // 
             // lvHD_Hang
             // 
-            this.lvHD_Hang.CheckBoxes = true;
             this.lvHD_Hang.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
             this.columnHeader1,
             this.columnHeader2,
@@ -600,6 +582,8 @@
             // 
             this.grbTTKH.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
+            this.grbTTKH.Controls.Add(this.txtHD_DiaChi);
+            this.grbTTKH.Controls.Add(this.label6);
             this.grbTTKH.Controls.Add(this.txtHD_MaHD);
             this.grbTTKH.Controls.Add(this.label5);
             this.grbTTKH.Controls.Add(this.txtHD_MaNV);
@@ -616,72 +600,6 @@
             this.grbTTKH.TabIndex = 1;
             this.grbTTKH.TabStop = false;
             this.grbTTKH.Text = "Thông tin khách hàng";
-            // 
-            // txtHD_HoTen
-            // 
-            this.txtHD_HoTen.Location = new System.Drawing.Point(124, 19);
-            this.txtHD_HoTen.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.txtHD_HoTen.Name = "txtHD_HoTen";
-            this.txtHD_HoTen.Size = new System.Drawing.Size(566, 22);
-            this.txtHD_HoTen.TabIndex = 2;
-            // 
-            // label2
-            // 
-            this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(14, 22);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(72, 16);
-            this.label2.TabIndex = 0;
-            this.label2.Text = "Họ và tên *";
-            // 
-            // contextMenuStrip1
-            // 
-            this.contextMenuStrip1.ImageScalingSize = new System.Drawing.Size(20, 20);
-            this.contextMenuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.thêmVàoĐơnHàngToolStripMenuItem});
-            this.contextMenuStrip1.Name = "contextMenuStrip1";
-            this.contextMenuStrip1.Size = new System.Drawing.Size(216, 28);
-            // 
-            // thêmVàoĐơnHàngToolStripMenuItem
-            // 
-            this.thêmVàoĐơnHàngToolStripMenuItem.Name = "thêmVàoĐơnHàngToolStripMenuItem";
-            this.thêmVàoĐơnHàngToolStripMenuItem.Size = new System.Drawing.Size(215, 24);
-            this.thêmVàoĐơnHàngToolStripMenuItem.Text = "Thêm vào Đơn Hàng";
-            this.thêmVàoĐơnHàngToolStripMenuItem.Click += new System.EventHandler(this.thêmVàoĐơnHàngToolStripMenuItem_Click);
-            // 
-            // label4
-            // 
-            this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(14, 48);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(43, 16);
-            this.label4.TabIndex = 4;
-            this.label4.Text = "SDT *";
-            // 
-            // txtHD_SDT
-            // 
-            this.txtHD_SDT.Location = new System.Drawing.Point(124, 45);
-            this.txtHD_SDT.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.txtHD_SDT.Name = "txtHD_SDT";
-            this.txtHD_SDT.Size = new System.Drawing.Size(566, 22);
-            this.txtHD_SDT.TabIndex = 5;
-            // 
-            // txtHD_MaNV
-            // 
-            this.txtHD_MaNV.Location = new System.Drawing.Point(125, 71);
-            this.txtHD_MaNV.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.txtHD_MaNV.Name = "txtHD_MaNV";
-            this.txtHD_MaNV.Size = new System.Drawing.Size(193, 22);
-            this.txtHD_MaNV.TabIndex = 7;
-            // 
-            // label3
-            // 
-            this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(15, 74);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(70, 16);
-            this.label3.TabIndex = 6;
-            this.label3.Text = "Mã NV lập";
             // 
             // txtHD_MaHD
             // 
@@ -700,6 +618,74 @@
             this.label5.TabIndex = 8;
             this.label5.Text = "Mã hóa đơn";
             // 
+            // txtHD_MaNV
+            // 
+            this.txtHD_MaNV.Location = new System.Drawing.Point(125, 71);
+            this.txtHD_MaNV.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.txtHD_MaNV.Name = "txtHD_MaNV";
+            this.txtHD_MaNV.Size = new System.Drawing.Size(193, 22);
+            this.txtHD_MaNV.TabIndex = 7;
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Location = new System.Drawing.Point(15, 74);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(70, 16);
+            this.label3.TabIndex = 6;
+            this.label3.Text = "Mã NV lập";
+            // 
+            // txtHD_SDT
+            // 
+            this.txtHD_SDT.Location = new System.Drawing.Point(124, 45);
+            this.txtHD_SDT.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.txtHD_SDT.Name = "txtHD_SDT";
+            this.txtHD_SDT.Size = new System.Drawing.Size(194, 22);
+            this.txtHD_SDT.TabIndex = 5;
+            // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Location = new System.Drawing.Point(14, 48);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(43, 16);
+            this.label4.TabIndex = 4;
+            this.label4.Text = "SDT *";
+            // 
+            // txtHD_HoTen
+            // 
+            this.txtHD_HoTen.Location = new System.Drawing.Point(124, 19);
+            this.txtHD_HoTen.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.txtHD_HoTen.Name = "txtHD_HoTen";
+            this.txtHD_HoTen.Size = new System.Drawing.Size(566, 22);
+            this.txtHD_HoTen.TabIndex = 2;
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Location = new System.Drawing.Point(14, 22);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(72, 16);
+            this.label2.TabIndex = 0;
+            this.label2.Text = "Họ và tên *";
+            // 
+            // txtHD_DiaChi
+            // 
+            this.txtHD_DiaChi.Location = new System.Drawing.Point(491, 48);
+            this.txtHD_DiaChi.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.txtHD_DiaChi.Name = "txtHD_DiaChi";
+            this.txtHD_DiaChi.Size = new System.Drawing.Size(199, 22);
+            this.txtHD_DiaChi.TabIndex = 11;
+            // 
+            // label6
+            // 
+            this.label6.AutoSize = true;
+            this.label6.Location = new System.Drawing.Point(386, 51);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(47, 16);
+            this.label6.TabIndex = 10;
+            this.label6.Text = "Địa chỉ";
+            // 
             // QuanLy
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -712,20 +698,20 @@
             this.MainMenuStrip = this.menuStrip1;
             this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "QuanLy";
-            this.Text = "QuanLy";
+            this.Text = "Quản lý Shop";
             this.Load += new System.EventHandler(this.QuanLy_Load);
             this.menuStrip1.ResumeLayout(false);
             this.menuStrip1.PerformLayout();
             this.grbMatHang.ResumeLayout(false);
             this.grbMatHang.PerformLayout();
             this.grbDSMH.ResumeLayout(false);
+            this.contextMenuStrip1.ResumeLayout(false);
             this.grbKhachHang.ResumeLayout(false);
             this.grbTKHD.ResumeLayout(false);
             this.grbTKHD.PerformLayout();
             this.grbDonHang.ResumeLayout(false);
             this.grbTTKH.ResumeLayout(false);
             this.grbTTKH.PerformLayout();
-            this.contextMenuStrip1.ResumeLayout(false);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -738,7 +724,6 @@
         private System.Windows.Forms.ToolStripMenuItem menuDSHD;
         private System.Windows.Forms.ToolStripMenuItem menuNhapHang3;
         private System.Windows.Forms.GroupBox grbMatHang;
-        private System.Windows.Forms.Button btnDelete;
         private System.Windows.Forms.Button btnSearch;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.TextBox txtSearch;
@@ -764,8 +749,6 @@
         private System.Windows.Forms.Button btnCancel;
         private System.Windows.Forms.TextBox txtHD_Note;
         private System.Windows.Forms.Label label15;
-        private System.Windows.Forms.TextBox txtHD_Status;
-        private System.Windows.Forms.Label label14;
         private System.Windows.Forms.TextBox txtHD_Total;
         private System.Windows.Forms.Label label11;
         private System.Windows.Forms.TextBox txtHD_Ship;
@@ -797,5 +780,7 @@
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.TextBox txtHD_MaHD;
         private System.Windows.Forms.Label label5;
+        private System.Windows.Forms.TextBox txtHD_DiaChi;
+        private System.Windows.Forms.Label label6;
     }
 }
