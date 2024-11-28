@@ -142,19 +142,24 @@ CREATE TABLE [dbo].[DanhSachNhanVien](
 ) ON [PRIMARY]
 GO
 /****** Object:  Table [dbo].[HoaDon]    Script Date: 9/22/2024 11:00:48 PM ******/
+USE [ShopQuanAo]
+GO
+
+/****** Object:  Table [dbo].[HoaDon]    Script Date: 11/28/2024 2:53:05 PM ******/
 SET ANSI_NULLS ON
 GO
+
 SET QUOTED_IDENTIFIER ON
 GO
+
 CREATE TABLE [dbo].[HoaDon](
 	[Ma_HD] [nvarchar](20) NOT NULL,
 	[Ma_NV] [nvarchar](20) NOT NULL,
-	[Ma_KH] [nvarchar](20) NOT NULL,
 	[NgayLap] [datetime] NOT NULL,
+	[KH] [nvarchar](30) NOT NULL,
+	[SDT] [nvarchar](20) NOT NULL,
 	[TongTien] [nvarchar](20) NOT NULL,
 	[PhiShip] [nvarchar](20) NOT NULL,
-	[Thue] [nvarchar](20) NOT NULL,
-	[Voucher] [nvarchar](20) NOT NULL,
 	[TongThanhToan] [nvarchar](20) NOT NULL,
  CONSTRAINT [PK_HoaDon] PRIMARY KEY CLUSTERED 
 (
@@ -162,6 +167,18 @@ CREATE TABLE [dbo].[HoaDon](
 )WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
 ) ON [PRIMARY]
 GO
+
+
+----
+INSERT [dbo].[HoaDon]([Ma_HD],[Ma_NV],[NgayLap],[KH],[SDT],[TongTien],[PhiShip],[TongThanhToan]) VALUES (N'HD001',N'0112',N'01/02/2024',N'Quốc Huy',N'0123456789',N'245000',N'15000',N'260000')
+INSERT [dbo].[HoaDon]([Ma_HD],[Ma_NV],[NgayLap],[KH],[SDT],[TongTien],[PhiShip],[TongThanhToan]) VALUES (N'HD002',N'0113',N'04/10/2024',N'Hừng Vĩnh',N'0555567892',N'400000',N'20000',N'420000')
+INSERT [dbo].[HoaDon]([Ma_HD],[Ma_NV],[NgayLap],[KH],[SDT],[TongTien],[PhiShip],[TongThanhToan]) VALUES (N'HD003',N'0122',N'21/12/2024',N'Chill Guy',N'0312666211',N'137000',N'13000',N'150000')
+
+SELECT * FROM [HoaDon]
+
+
+
+
 /****** Object:  Table [dbo].[KhachHang]    Script Date: 9/22/2024 11:00:48 PM ******/
 SET ANSI_NULLS ON
 GO
@@ -195,6 +212,19 @@ CREATE TABLE [dbo].[MatHang](
 )WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
 ) ON [PRIMARY]
 GO
+---
+INSERT [dbo].[MatHang]([Ma_SP],[Ten_SP],[GiaSi],[GiaLe],[SL_SP]) VALUES (N'A01',N'Áo ba lỗ',50000,55000,1)
+INSERT [dbo].[MatHang]([Ma_SP],[Ten_SP],[GiaSi],[GiaLe],[SL_SP]) VALUES (N'A03',N'Áo tay ngắn',55000,60000,1)
+INSERT [dbo].[MatHang]([Ma_SP],[Ten_SP],[GiaSi],[GiaLe],[SL_SP]) VALUES (N'A04',N'Áo tay dài',60000,65000,1)
+INSERT [dbo].[MatHang]([Ma_SP],[Ten_SP],[GiaSi],[GiaLe],[SL_SP]) VALUES (N'Q02',N'Quần què',65000,70000,1)
+INSERT [dbo].[MatHang]([Ma_SP],[Ten_SP],[GiaSi],[GiaLe],[SL_SP]) VALUES (N'Q05',N'Quần jean rách',70000,75000,1)
+INSERT [dbo].[MatHang]([Ma_SP],[Ten_SP],[GiaSi],[GiaLe],[SL_SP]) VALUES (N'Q06',N'Quần thể dục',80000,87000,5)
+INSERT [dbo].[MatHang]([Ma_SP],[Ten_SP],[GiaSi],[GiaLe],[SL_SP]) VALUES (N'Q07',N'Quần boy phố',70000,75000,11)
+INSERT [dbo].[MatHang]([Ma_SP],[Ten_SP],[GiaSi],[GiaLe],[SL_SP]) VALUES (N'A05',N'Áo capybara',100000,120000,22)
+INSERT [dbo].[MatHang]([Ma_SP],[Ten_SP],[GiaSi],[GiaLe],[SL_SP]) VALUES (N'A06',N'Áo quân đội',150000,165000,3)
+
+SELECT * FROM [MatHang]
+
 /****** Object:  Table [dbo].[NhaCungCap]    Script Date: 9/22/2024 11:00:48 PM ******/
 SET ANSI_NULLS ON
 GO
@@ -246,6 +276,15 @@ CREATE TABLE [dbo].[TaiKhoan](
 )WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
 ) ON [PRIMARY]
 GO
+---
+INSERT [dbo].[TaiKhoan]([TenDangNhap],[MatKhau],[ChucVu],[Ma_NV]) VALUES (N'admin123',N'123456',N'QuanLy',N'0111')
+INSERT [dbo].[TaiKhoan]([TenDangNhap],[MatKhau],[ChucVu],[Ma_NV]) VALUES (N'baoquan1',N'quan123',N'NhanVien',N'0112')
+INSERT [dbo].[TaiKhoan]([TenDangNhap],[MatKhau],[ChucVu],[Ma_NV]) VALUES (N'huutruong1',N'truong123',N'NhanVien',N'0113')
+
+SELECT * FROM [TaiKhoan]
+----
+
+
 ALTER TABLE [dbo].[ChiTietHoaDon]  WITH CHECK ADD  CONSTRAINT [FK_ChiTietHoaDon_HoaDon] FOREIGN KEY([Ma_HD])
 REFERENCES [dbo].[HoaDon] ([Ma_HD])
 GO
@@ -275,3 +314,5 @@ USE [master]
 GO
 ALTER DATABASE [ShopQuanAo] SET  READ_WRITE 
 GO
+----
+
