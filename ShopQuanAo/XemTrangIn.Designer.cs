@@ -29,12 +29,14 @@
         private void InitializeComponent()
         {
             this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.label1 = new System.Windows.Forms.Label();
-            this.numericUpDown1 = new System.Windows.Forms.NumericUpDown();
             this.button1 = new System.Windows.Forms.Button();
+            this.numericUpDown1 = new System.Windows.Forms.NumericUpDown();
+            this.label1 = new System.Windows.Forms.Label();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
+            this.listView1 = new System.Windows.Forms.ListView();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDown1)).BeginInit();
+            this.groupBox2.SuspendLayout();
             this.SuspendLayout();
             // 
             // groupBox1
@@ -48,22 +50,6 @@
             this.groupBox1.TabIndex = 0;
             this.groupBox1.TabStop = false;
             // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(13, 16);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(46, 16);
-            this.label1.TabIndex = 0;
-            this.label1.Text = "Trang ";
-            // 
-            // numericUpDown1
-            // 
-            this.numericUpDown1.Location = new System.Drawing.Point(65, 14);
-            this.numericUpDown1.Name = "numericUpDown1";
-            this.numericUpDown1.Size = new System.Drawing.Size(78, 22);
-            this.numericUpDown1.TabIndex = 1;
-            // 
             // button1
             // 
             this.button1.Location = new System.Drawing.Point(801, 12);
@@ -73,15 +59,41 @@
             this.button1.Text = "Đóng";
             this.button1.UseVisualStyleBackColor = true;
             // 
+            // numericUpDown1
+            // 
+            this.numericUpDown1.Location = new System.Drawing.Point(65, 14);
+            this.numericUpDown1.Name = "numericUpDown1";
+            this.numericUpDown1.Size = new System.Drawing.Size(78, 22);
+            this.numericUpDown1.TabIndex = 1;
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(13, 16);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(46, 16);
+            this.label1.TabIndex = 0;
+            this.label1.Text = "Trang ";
+            // 
             // groupBox2
             // 
             this.groupBox2.BackColor = System.Drawing.SystemColors.ControlLight;
+            this.groupBox2.Controls.Add(this.listView1);
             this.groupBox2.Location = new System.Drawing.Point(-1, 59);
             this.groupBox2.Name = "groupBox2";
             this.groupBox2.Size = new System.Drawing.Size(904, 520);
             this.groupBox2.TabIndex = 1;
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Danh sách";
+            // 
+            // listView1
+            // 
+            this.listView1.HideSelection = false;
+            this.listView1.Location = new System.Drawing.Point(105, 21);
+            this.listView1.Name = "listView1";
+            this.listView1.Size = new System.Drawing.Size(704, 487);
+            this.listView1.TabIndex = 0;
+            this.listView1.UseCompatibleStateImageBehavior = false;
             // 
             // XemTrangIn
             // 
@@ -96,6 +108,7 @@
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDown1)).EndInit();
+            this.groupBox2.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
@@ -107,5 +120,6 @@
         private System.Windows.Forms.NumericUpDown numericUpDown1;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.GroupBox groupBox2;
+        private System.Windows.Forms.ListView listView1;
     }
 }
