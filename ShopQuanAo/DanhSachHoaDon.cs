@@ -28,8 +28,13 @@ namespace ShopQuanAo
 
         private void lvDSHD_ItemActivate(object sender, EventArgs e)
         {
-            ChiTietDonHang formCTDH = new ChiTietDonHang(this);
-            formCTDH.Show();
+            if (lvDSHD.SelectedItems.Count > 0)
+            {
+                // Lấy Mã hóa đơn từ item được chọn
+                string maHD = lvDSHD.SelectedItems[0].SubItems[0].Text;
+                ChiTietDonHang formCTDH = new ChiTietDonHang(maHD);
+                formCTDH.Show();
+            }
         }
 
         private void LoadHoaDon()
@@ -100,58 +105,72 @@ namespace ShopQuanAo
 
         private void btnDelete_Click(object sender, EventArgs e)
         {
-            // Kiểm tra xem có item nào được chọn không
             if (lvDSHD.SelectedItems.Count == 0)
             {
-                MessageBox.Show("Vui lòng chọn hóa đơn để xóa.", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                MessageBox.Show("Vui lòng chọn một hóa đơn để xóa!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 return;
             }
 
-            // Lấy item được chọn
-            ListViewItem selectedItem = lvDSHD.SelectedItems[0];
-            string maHD = selectedItem.SubItems[0].Text; // Ma_HD nằm ở cột đầu tiên
+            // Lấy mã hóa đơn từ item được chọn
+            string maHD = lvDSHD.SelectedItems[0].SubItems[0].Text; // Cột 0 là Ma_HD
 
-            // Xác nhận trước khi xóa
-            DialogResult result = MessageBox.Show($"Bạn có chắc chắn muốn xóa hóa đơn {maHD} không?",
-                                                  "Xác nhận xóa", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+            DialogResult result = MessageBox.Show($"Bạn có chắc chắn muốn xóa hóa đơn {maHD} và các chi tiết liên quan?",
+                                                  "Xác nhận xóa",
+                                                  MessageBoxButtons.YesNo,
+                                                  MessageBoxIcon.Question);
 
             if (result == DialogResult.Yes)
             {
-                // Chuỗi kết nối 
                 string connectionString = "Server=.\\SQLEXPRESS;Database=ShopQuanAo;Trusted_Connection=True;";
 
 
-                // Câu lệnh SQL DELETE
-                string query = "DELETE FROM HoaDon WHERE Ma_HD = @MaHD";
-
-                using (SqlConnection connection = new SqlConnection(connectionString))
+                try
                 {
-                    try
+                    using (SqlConnection conn = new SqlConnection(connectionString))
                     {
-                        connection.Open();
-                        SqlCommand command = new SqlCommand(query, connection);
+                        conn.Open();
 
-                        // Thêm tham số
-                        command.Parameters.AddWithValue("@MaHD", maHD);
-
-                        // Thực thi lệnh DELETE
-                        int rowsAffected = command.ExecuteNonQuery();
-
-                        if (rowsAffected > 0)
+                        // Bắt đầu transaction để đảm bảo tính nhất quán
+                        using (SqlTransaction transaction = conn.BeginTransaction())
                         {
-                            // Xóa item khỏi ListView
-                            lvDSHD.Items.Remove(selectedItem);
-                            MessageBox.Show($"Hóa đơn {maHD} đã được xóa thành công.", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                        }
-                        else
-                        {
-                            MessageBox.Show($"Không tìm thấy hóa đơn {maHD} trong cơ sở dữ liệu.", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                            try
+                            {
+                                // Xóa các chi tiết hóa đơn trong bảng ChiTietHoaDon
+                                string deleteChiTietHDQuery = "DELETE FROM ChiTietHoaDon WHERE Ma_HD = @MaHD";
+                                using (SqlCommand cmd = new SqlCommand(deleteChiTietHDQuery, conn, transaction))
+                                {
+                                    cmd.Parameters.AddWithValue("@MaHD", maHD);
+                                    cmd.ExecuteNonQuery();
+                                }
+
+                                // Xóa hóa đơn trong bảng HoaDon
+                                string deleteHoaDonQuery = "DELETE FROM HoaDon WHERE Ma_HD = @MaHD";
+                                using (SqlCommand cmd = new SqlCommand(deleteHoaDonQuery, conn, transaction))
+                                {
+                                    cmd.Parameters.AddWithValue("@MaHD", maHD);
+                                    cmd.ExecuteNonQuery();
+                                }
+
+                                // Commit transaction
+                                transaction.Commit();
+
+                                // Xóa item khỏi ListView
+                                lvDSHD.Items.Remove(lvDSHD.SelectedItems[0]);
+
+                                MessageBox.Show($"Hóa đơn {maHD} đã được xóa thành công!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                            }
+                            catch
+                            {
+                                // Rollback nếu có lỗi xảy ra
+                                transaction.Rollback();
+                                throw;
+                            }
                         }
                     }
-                    catch (Exception ex)
-                    {
-                        MessageBox.Show("Lỗi khi xóa hóa đơn: " + ex.Message, "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                    }
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show("Lỗi khi xóa hóa đơn: " + ex.Message, "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
             }
         }

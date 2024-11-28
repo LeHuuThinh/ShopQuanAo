@@ -295,55 +295,69 @@ namespace ShopQuanAo
 
         private void btnSave_Click(object sender, EventArgs e)
         {
-            // Lấy thông tin từ các TextBox và DateTimePicker
-            string maHD = txtHD_MaHD.Text.Trim();
-            string maNV = txtHD_MaNV.Text.Trim();
-            DateTime ngayLap = dtpHD_NgayLap.Value;
-            string khachHang = txtHD_HoTen.Text.Trim();
-            string sdt = txtHD_SDT.Text.Trim();
-            string diaChi = txtHD_DiaChi.Text.Trim();
-            string tongTien = txtHD_TongTien.Text.Trim();
-            string phiShip = txtHD_Ship.Text.Trim();
-            string tongThanhToan = txtHD_Total.Text.Trim();
-
-            // Chuỗi kết nối 
+            // Kết nối CSDL
             string connectionString = "Server=.\\SQLEXPRESS;Database=ShopQuanAo;Trusted_Connection=True;";
-
-
-            // Câu lệnh SQL Insert
-            string query = "INSERT INTO HoaDon (Ma_HD, Ma_NV, NgayLap, KH, SDT, DiaChi, TongTien, PhiShip, TongThanhToan) " +
-                           "VALUES (@MaHD, @MaNV, @NgayLap, @KH, @SDT, @DiaChi, @TongTien, @PhiShip, @TongThanhToan)";
 
             using (SqlConnection connection = new SqlConnection(connectionString))
             {
                 try
                 {
                     connection.Open();
-                    SqlCommand command = new SqlCommand(query, connection);
 
-                    // Thêm các tham số
-                    command.Parameters.AddWithValue("@MaHD", maHD);
-                    command.Parameters.AddWithValue("@MaNV", maNV);
-                    command.Parameters.AddWithValue("@NgayLap", ngayLap);
-                    command.Parameters.AddWithValue("@KH", khachHang);
-                    command.Parameters.AddWithValue("@SDT", sdt);
-                    command.Parameters.AddWithValue("@DiaChi", diaChi);
-                    command.Parameters.AddWithValue("@TongTien", tongTien);
-                    command.Parameters.AddWithValue("@PhiShip", phiShip);
-                    command.Parameters.AddWithValue("@TongThanhToan", tongThanhToan);
+                    // 1. Lưu hóa đơn vào bảng HoaDon
+                    string maHD = txtHD_MaHD.Text.Trim();
+                    string maNV = txtHD_MaNV.Text.Trim();
+                    DateTime ngayLap = dtpHD_NgayLap.Value;
+                    string hoTen = txtHD_HoTen.Text.Trim();
+                    string sdt = txtHD_SDT.Text.Trim();
+                    string diaChi = txtHD_DiaChi.Text.Trim();
+                    string tongTien = txtHD_TongTien.Text.Trim();
+                    string phiShip = txtHD_Ship.Text.Trim();
+                    string tongThanhToan = txtHD_Total.Text.Trim();
 
-                    // Thực thi lệnh
-                    command.ExecuteNonQuery();
+                    string queryHoaDon = @"INSERT INTO HoaDon (Ma_HD, Ma_NV, NgayLap, KH, SDT, DiaChi, TongTien, PhiShip, TongThanhToan)
+                                   VALUES (@MaHD, @MaNV, @NgayLap, @KH, @SDT, @DiaChi, @TongTien, @PhiShip, @TongThanhToan)";
+
+                    using (SqlCommand cmdHoaDon = new SqlCommand(queryHoaDon, connection))
+                    {
+                        cmdHoaDon.Parameters.AddWithValue("@MaHD", maHD);
+                        cmdHoaDon.Parameters.AddWithValue("@MaNV", maNV);
+                        cmdHoaDon.Parameters.AddWithValue("@NgayLap", ngayLap);
+                        cmdHoaDon.Parameters.AddWithValue("@KH", hoTen);
+                        cmdHoaDon.Parameters.AddWithValue("@SDT", sdt);
+                        cmdHoaDon.Parameters.AddWithValue("@DiaChi", sdt);
+                        cmdHoaDon.Parameters.AddWithValue("@TongTien", tongTien);
+                        cmdHoaDon.Parameters.AddWithValue("@PhiShip", phiShip);
+                        cmdHoaDon.Parameters.AddWithValue("@TongThanhToan", tongThanhToan);
+
+                        cmdHoaDon.ExecuteNonQuery();
+                    }
+
+                    // 2. Lưu các item từ lvMatHang2 vào bảng ChiTietHoaDon
+                    foreach (ListViewItem item in lvHD_Hang.Items)
+                    {
+                        string maSP = item.SubItems[0].Text; // Ma_SP
+                        string tenSP = item.SubItems[1].Text; // Ten_SP
+                        int soLuong = int.Parse(item.SubItems[2].Text); // SoLuong
+                        string thanhTien = item.SubItems[3].Text; // ThanhTien
+
+                        string queryChiTiet = @"INSERT INTO ChiTietHoaDon (Ma_HD, Ma_SP, Ten_SP, SoLuong, ThanhTien)
+                                        VALUES (@MaHD, @MaSP, @TenSP, @SoLuong, @ThanhTien)";
+
+                        using (SqlCommand cmdChiTiet = new SqlCommand(queryChiTiet, connection))
+                        {
+                            cmdChiTiet.Parameters.AddWithValue("@MaHD", maHD);
+                            cmdChiTiet.Parameters.AddWithValue("@MaSP", maSP);
+                            cmdChiTiet.Parameters.AddWithValue("@TenSP", tenSP);
+                            cmdChiTiet.Parameters.AddWithValue("@SoLuong", soLuong);
+                            cmdChiTiet.Parameters.AddWithValue("@ThanhTien", thanhTien);
+
+                            cmdChiTiet.ExecuteNonQuery();
+                        }
+                    }
 
                     // Thông báo thành công
                     MessageBox.Show("Lưu hóa đơn thành công!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
-
-                    // Gửi dữ liệu sang Form2
-                    DanhSachHoaDon formDSHD = Application.OpenForms["Form2"] as DanhSachHoaDon;
-                    if (formDSHD != null)
-                    {
-                        formDSHD.AddToListView(maHD, maNV, ngayLap, khachHang, sdt, diaChi, tongTien, phiShip, tongThanhToan);
-                    }
                 }
                 catch (Exception ex)
                 {

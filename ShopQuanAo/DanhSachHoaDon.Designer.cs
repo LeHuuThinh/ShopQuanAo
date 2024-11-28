@@ -51,11 +51,11 @@
             this.columnHeader3 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.columnHeader4 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.columnHeader5 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.columnHeader7 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.columnHeader6 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.columnHeader8 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.columnHeader10 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.columnHeader11 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.columnHeader7 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.grbTKHD.SuspendLayout();
             this.grbDSHD.SuspendLayout();
             this.SuspendLayout();
@@ -189,6 +189,8 @@
             // 
             // dateTimePicker2
             // 
+            this.dateTimePicker2.CustomFormat = "dd/MM/yy";
+            this.dateTimePicker2.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
             this.dateTimePicker2.Location = new System.Drawing.Point(93, 66);
             this.dateTimePicker2.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.dateTimePicker2.Name = "dateTimePicker2";
@@ -206,6 +208,8 @@
             // 
             // dateTimePicker1
             // 
+            this.dateTimePicker1.CustomFormat = "dd/MM/yy";
+            this.dateTimePicker1.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
             this.dateTimePicker1.Location = new System.Drawing.Point(93, 28);
             this.dateTimePicker1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.dateTimePicker1.Name = "dateTimePicker1";
@@ -284,6 +288,11 @@
             this.columnHeader5.Text = "SDT";
             this.columnHeader5.Width = 100;
             // 
+            // columnHeader7
+            // 
+            this.columnHeader7.Text = "Địa chỉ";
+            this.columnHeader7.Width = 120;
+            // 
             // columnHeader6
             // 
             this.columnHeader6.Text = "Tiền hàng";
@@ -303,11 +312,6 @@
             // 
             this.columnHeader11.Text = "Ghi chú";
             this.columnHeader11.Width = 120;
-            // 
-            // columnHeader7
-            // 
-            this.columnHeader7.Text = "Địa chỉ";
-            this.columnHeader7.Width = 120;
             // 
             // DanhSachHoaDon
             // 

@@ -85,25 +85,13 @@ ALTER DATABASE [ShopQuanAo] SET QUERY_STORE = ON
 GO
 ALTER DATABASE [ShopQuanAo] SET QUERY_STORE (OPERATION_MODE = READ_WRITE, CLEANUP_POLICY = (STALE_QUERY_THRESHOLD_DAYS = 30), DATA_FLUSH_INTERVAL_SECONDS = 900, INTERVAL_LENGTH_MINUTES = 60, MAX_STORAGE_SIZE_MB = 1000, QUERY_CAPTURE_MODE = AUTO, SIZE_BASED_CLEANUP_MODE = AUTO, MAX_PLANS_PER_QUERY = 200, WAIT_STATS_CAPTURE_MODE = ON)
 GO
-USE [ShopQuanAo]
-GO
-/****** Object:  Table [dbo].[ChiTietHoaDon]    Script Date: 9/22/2024 11:00:48 PM ******/
-SET ANSI_NULLS ON
-GO
-SET QUOTED_IDENTIFIER ON
-GO
-CREATE TABLE [dbo].[ChiTietHoaDon](
-	[Ma_HD] [nvarchar](20) NOT NULL,
-	[Ma_SP] [nvarchar](20) NOT NULL,
-	[SoLuong] [int] NOT NULL,
-	[ThanhTien] [nvarchar](20) NOT NULL,
- CONSTRAINT [PK_ChiTietHoaDon] PRIMARY KEY CLUSTERED 
-(
-	[Ma_HD] ASC,
-	[Ma_SP] ASC
-)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
-) ON [PRIMARY]
-GO
+
+
+
+
+
+
+
 /****** Object:  Table [dbo].[ChiTietPhieuNhap]    Script Date: 9/22/2024 11:00:48 PM ******/
 SET ANSI_NULLS ON
 GO
@@ -168,6 +156,26 @@ CREATE TABLE [dbo].[HoaDon](
 )WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
 ) ON [PRIMARY]
 GO
+---
+USE [ShopQuanAo]
+GO
+
+/****** Object:  Table [dbo].[ChiTietHoaDon]    Script Date: 11/28/2024 9:03:27 PM ******/
+SET ANSI_NULLS ON
+GO
+
+SET QUOTED_IDENTIFIER ON
+GO
+
+CREATE TABLE [ChiTietHoaDon] (
+    [Ma_HD] [nvarchar](20) NOT NULL,
+    [Ma_SP] [nvarchar](20) NOT NULL,
+    [Ten_SP] [nvarchar](50) NOT NULL,
+    [SoLuong] [int] NOT NULL,
+    [ThanhTien] [nvarchar](20) NOT NULL,
+    PRIMARY KEY ([Ma_HD], [Ma_SP]),
+    FOREIGN KEY ([Ma_HD]) REFERENCES HoaDon([Ma_HD])
+)
 
 
 ----
@@ -226,9 +234,9 @@ INSERT [dbo].[MatHang]([Ma_SP],[Ten_SP],[GiaSi],[GiaLe],[SL_SP]) VALUES (N'A05',
 INSERT [dbo].[MatHang]([Ma_SP],[Ten_SP],[GiaSi],[GiaLe],[SL_SP]) VALUES (N'A06',N'Áo quân đội',150000,165000,3)
 INSERT [dbo].[MatHang]([Ma_SP],[Ten_SP],[GiaSi],[GiaLe],[SL_SP]) VALUES (N'A08',N'Áo hoodie',125000,132000,36)
 INSERT [dbo].[MatHang]([Ma_SP],[Ten_SP],[GiaSi],[GiaLe],[SL_SP]) VALUES (N'A10',N'Áo caro',75000,80000,15)
-INSERT [dbo].[MatHang]([Ma_SP],[Ten_SP],[GiaSi],[GiaLe],[SL_SP]) VALUES (N'Q07',N'Quần gấu',50000,55000,7)
-INSERT [dbo].[MatHang]([Ma_SP],[Ten_SP],[GiaSi],[GiaLe],[SL_SP]) VALUES (N'Q07',N'Quần đùi',45000,50000,31)
-INSERT [dbo].[MatHang]([Ma_SP],[Ten_SP],[GiaSi],[GiaLe],[SL_SP]) VALUES (N'Q07',N'Quần dài',35000,38000,13)
+INSERT [dbo].[MatHang]([Ma_SP],[Ten_SP],[GiaSi],[GiaLe],[SL_SP]) VALUES (N'Q08',N'Quần gấu',50000,55000,7)
+INSERT [dbo].[MatHang]([Ma_SP],[Ten_SP],[GiaSi],[GiaLe],[SL_SP]) VALUES (N'Q09',N'Quần đùi',45000,50000,31)
+INSERT [dbo].[MatHang]([Ma_SP],[Ten_SP],[GiaSi],[GiaLe],[SL_SP]) VALUES (N'Q10',N'Quần dài',35000,38000,13)
 INSERT [dbo].[MatHang]([Ma_SP],[Ten_SP],[GiaSi],[GiaLe],[SL_SP]) VALUES (N'A11',N'Áo siêu nhân',195000,210000,44)
 
 SELECT * FROM [MatHang]

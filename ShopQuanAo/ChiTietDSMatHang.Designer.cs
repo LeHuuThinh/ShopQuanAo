@@ -29,6 +29,10 @@
         private void InitializeComponent()
         {
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.btnDelete = new System.Windows.Forms.Button();
+            this.lblTongSL = new System.Windows.Forms.Label();
+            this.label5 = new System.Windows.Forms.Label();
+            this.lblSLMH = new System.Windows.Forms.Label();
             this.btnUpdateMH = new System.Windows.Forms.Button();
             this.btnAddMH = new System.Windows.Forms.Button();
             this.label4 = new System.Windows.Forms.Label();
@@ -45,10 +49,6 @@
             this.columnHeader7 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.columnHeader8 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.columnHeader9 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.lblSLMH = new System.Windows.Forms.Label();
-            this.label5 = new System.Windows.Forms.Label();
-            this.lblTongSL = new System.Windows.Forms.Label();
-            this.btnDelete = new System.Windows.Forms.Button();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
             this.SuspendLayout();
@@ -74,6 +74,47 @@
             this.groupBox1.TabIndex = 0;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Tìm kiếm";
+            // 
+            // btnDelete
+            // 
+            this.btnDelete.Location = new System.Drawing.Point(424, 67);
+            this.btnDelete.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.btnDelete.Name = "btnDelete";
+            this.btnDelete.Size = new System.Drawing.Size(136, 33);
+            this.btnDelete.TabIndex = 12;
+            this.btnDelete.Text = "Xóa mặt hàng";
+            this.btnDelete.UseVisualStyleBackColor = true;
+            this.btnDelete.Click += new System.EventHandler(this.btnDelete_Click);
+            // 
+            // lblTongSL
+            // 
+            this.lblTongSL.AutoSize = true;
+            this.lblTongSL.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblTongSL.Location = new System.Drawing.Point(839, 72);
+            this.lblTongSL.Name = "lblTongSL";
+            this.lblTongSL.Size = new System.Drawing.Size(24, 20);
+            this.lblTongSL.TabIndex = 11;
+            this.lblTongSL.Text = "...";
+            // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label5.Location = new System.Drawing.Point(777, 30);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(78, 20);
+            this.label5.TabIndex = 10;
+            this.label5.Text = "mặt hàng";
+            // 
+            // lblSLMH
+            // 
+            this.lblSLMH.AutoSize = true;
+            this.lblSLMH.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblSLMH.Location = new System.Drawing.Point(738, 30);
+            this.lblSLMH.Name = "lblSLMH";
+            this.lblSLMH.Size = new System.Drawing.Size(24, 20);
+            this.lblSLMH.TabIndex = 9;
+            this.lblSLMH.Text = "...";
             // 
             // btnUpdateMH
             // 
@@ -213,47 +254,6 @@
             // 
             this.columnHeader9.Text = "Ghi chú";
             this.columnHeader9.Width = 100;
-            // 
-            // lblSLMH
-            // 
-            this.lblSLMH.AutoSize = true;
-            this.lblSLMH.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblSLMH.Location = new System.Drawing.Point(738, 33);
-            this.lblSLMH.Name = "lblSLMH";
-            this.lblSLMH.Size = new System.Drawing.Size(24, 20);
-            this.lblSLMH.TabIndex = 9;
-            this.lblSLMH.Text = "...";
-            // 
-            // label5
-            // 
-            this.label5.AutoSize = true;
-            this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label5.Location = new System.Drawing.Point(777, 30);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(78, 20);
-            this.label5.TabIndex = 10;
-            this.label5.Text = "mặt hàng";
-            // 
-            // lblTongSL
-            // 
-            this.lblTongSL.AutoSize = true;
-            this.lblTongSL.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblTongSL.Location = new System.Drawing.Point(839, 72);
-            this.lblTongSL.Name = "lblTongSL";
-            this.lblTongSL.Size = new System.Drawing.Size(24, 20);
-            this.lblTongSL.TabIndex = 11;
-            this.lblTongSL.Text = "...";
-            // 
-            // btnDelete
-            // 
-            this.btnDelete.Location = new System.Drawing.Point(424, 67);
-            this.btnDelete.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.btnDelete.Name = "btnDelete";
-            this.btnDelete.Size = new System.Drawing.Size(136, 33);
-            this.btnDelete.TabIndex = 12;
-            this.btnDelete.Text = "Xóa mặt hàng";
-            this.btnDelete.UseVisualStyleBackColor = true;
-            this.btnDelete.Click += new System.EventHandler(this.btnDelete_Click);
             // 
             // ChiTietDSMatHang
             // 

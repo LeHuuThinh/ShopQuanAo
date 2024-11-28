@@ -82,6 +82,8 @@
             this.columnHeader6 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.columnHeader7 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.grbTTKH = new System.Windows.Forms.GroupBox();
+            this.txtHD_DiaChi = new System.Windows.Forms.TextBox();
+            this.label6 = new System.Windows.Forms.Label();
             this.txtHD_MaHD = new System.Windows.Forms.TextBox();
             this.label5 = new System.Windows.Forms.Label();
             this.txtHD_MaNV = new System.Windows.Forms.TextBox();
@@ -90,8 +92,6 @@
             this.label4 = new System.Windows.Forms.Label();
             this.txtHD_HoTen = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
-            this.txtHD_DiaChi = new System.Windows.Forms.TextBox();
-            this.label6 = new System.Windows.Forms.Label();
             this.menuStrip1.SuspendLayout();
             this.grbMatHang.SuspendLayout();
             this.grbDSMH.SuspendLayout();
@@ -114,7 +114,7 @@
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
             this.menuStrip1.Padding = new System.Windows.Forms.Padding(5, 2, 0, 2);
-            this.menuStrip1.Size = new System.Drawing.Size(1269, 28);
+            this.menuStrip1.Size = new System.Drawing.Size(1269, 30);
             this.menuStrip1.TabIndex = 0;
             this.menuStrip1.Text = "menuStrip1";
             // 
@@ -125,7 +125,7 @@
             this.menuChiTietDSMH,
             this.menuInMaVach});
             this.mộtToolStripMenuItem.Name = "mộtToolStripMenuItem";
-            this.mộtToolStripMenuItem.Size = new System.Drawing.Size(126, 24);
+            this.mộtToolStripMenuItem.Size = new System.Drawing.Size(126, 26);
             this.mộtToolStripMenuItem.Text = "Nhập đơn hàng";
             // 
             // menuNhomMatHang
@@ -152,7 +152,7 @@
             // menuDSHD
             // 
             this.menuDSHD.Name = "menuDSHD";
-            this.menuDSHD.Size = new System.Drawing.Size(158, 24);
+            this.menuDSHD.Size = new System.Drawing.Size(158, 26);
             this.menuDSHD.Text = "Danh sách đơn hàng";
             this.menuDSHD.Click += new System.EventHandler(this.menuDSHD_Click);
             // 
@@ -162,7 +162,7 @@
             this.menuNewNH,
             this.menuDSNH});
             this.menuNhapHang3.Name = "menuNhapHang3";
-            this.menuNhapHang3.Size = new System.Drawing.Size(96, 24);
+            this.menuNhapHang3.Size = new System.Drawing.Size(96, 26);
             this.menuNhapHang3.Text = "Nhập hàng";
             // 
             // menuNewNH
@@ -185,20 +185,20 @@
             this.menuBaoCaoDT,
             this.menuMHSapHet});
             this.menuDoanhThu.Name = "menuDoanhThu";
-            this.menuDoanhThu.Size = new System.Drawing.Size(92, 24);
+            this.menuDoanhThu.Size = new System.Drawing.Size(92, 26);
             this.menuDoanhThu.Text = "Doanh thu";
             // 
             // menuBaoCaoDT
             // 
             this.menuBaoCaoDT.Name = "menuBaoCaoDT";
-            this.menuBaoCaoDT.Size = new System.Drawing.Size(224, 26);
+            this.menuBaoCaoDT.Size = new System.Drawing.Size(217, 26);
             this.menuBaoCaoDT.Text = "Báo cáo doanh thu";
             this.menuBaoCaoDT.Click += new System.EventHandler(this.menuBaoCaoDT_Click);
             // 
             // menuMHSapHet
             // 
             this.menuMHSapHet.Name = "menuMHSapHet";
-            this.menuMHSapHet.Size = new System.Drawing.Size(224, 26);
+            this.menuMHSapHet.Size = new System.Drawing.Size(217, 26);
             this.menuMHSapHet.Text = "Mặt hàng sắp hết";
             this.menuMHSapHet.Click += new System.EventHandler(this.menuMHSapHet_Click);
             // 
@@ -208,20 +208,20 @@
             this.quảnLýTàiKhoảnToolStripMenuItem,
             this.đổiMậtKhẩuToolStripMenuItem});
             this.menuQuanLyTK.Name = "menuQuanLyTK";
-            this.menuQuanLyTK.Size = new System.Drawing.Size(85, 24);
+            this.menuQuanLyTK.Size = new System.Drawing.Size(85, 26);
             this.menuQuanLyTK.Text = "Tài khoản";
             // 
             // quảnLýTàiKhoảnToolStripMenuItem
             // 
             this.quảnLýTàiKhoảnToolStripMenuItem.Name = "quảnLýTàiKhoảnToolStripMenuItem";
-            this.quảnLýTàiKhoảnToolStripMenuItem.Size = new System.Drawing.Size(224, 26);
+            this.quảnLýTàiKhoảnToolStripMenuItem.Size = new System.Drawing.Size(207, 26);
             this.quảnLýTàiKhoảnToolStripMenuItem.Text = "Quản lý tài khoản";
             this.quảnLýTàiKhoảnToolStripMenuItem.Click += new System.EventHandler(this.quảnLýTàiKhoảnToolStripMenuItem_Click);
             // 
             // đổiMậtKhẩuToolStripMenuItem
             // 
             this.đổiMậtKhẩuToolStripMenuItem.Name = "đổiMậtKhẩuToolStripMenuItem";
-            this.đổiMậtKhẩuToolStripMenuItem.Size = new System.Drawing.Size(224, 26);
+            this.đổiMậtKhẩuToolStripMenuItem.Size = new System.Drawing.Size(207, 26);
             this.đổiMậtKhẩuToolStripMenuItem.Text = "Đổi mật khẩu";
             this.đổiMậtKhẩuToolStripMenuItem.Click += new System.EventHandler(this.đổiMậtKhẩuToolStripMenuItem_Click);
             // 
@@ -500,6 +500,8 @@
             // 
             // dtpHD_NgayLap
             // 
+            this.dtpHD_NgayLap.CustomFormat = "dd/MM/yy";
+            this.dtpHD_NgayLap.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
             this.dtpHD_NgayLap.Location = new System.Drawing.Point(163, 18);
             this.dtpHD_NgayLap.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.dtpHD_NgayLap.Name = "dtpHD_NgayLap";
@@ -601,6 +603,23 @@
             this.grbTTKH.TabStop = false;
             this.grbTTKH.Text = "Thông tin khách hàng";
             // 
+            // txtHD_DiaChi
+            // 
+            this.txtHD_DiaChi.Location = new System.Drawing.Point(491, 48);
+            this.txtHD_DiaChi.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.txtHD_DiaChi.Name = "txtHD_DiaChi";
+            this.txtHD_DiaChi.Size = new System.Drawing.Size(199, 22);
+            this.txtHD_DiaChi.TabIndex = 11;
+            // 
+            // label6
+            // 
+            this.label6.AutoSize = true;
+            this.label6.Location = new System.Drawing.Point(386, 51);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(47, 16);
+            this.label6.TabIndex = 10;
+            this.label6.Text = "Địa chỉ";
+            // 
             // txtHD_MaHD
             // 
             this.txtHD_MaHD.Location = new System.Drawing.Point(491, 74);
@@ -668,23 +687,6 @@
             this.label2.Size = new System.Drawing.Size(72, 16);
             this.label2.TabIndex = 0;
             this.label2.Text = "Họ và tên *";
-            // 
-            // txtHD_DiaChi
-            // 
-            this.txtHD_DiaChi.Location = new System.Drawing.Point(491, 48);
-            this.txtHD_DiaChi.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.txtHD_DiaChi.Name = "txtHD_DiaChi";
-            this.txtHD_DiaChi.Size = new System.Drawing.Size(199, 22);
-            this.txtHD_DiaChi.TabIndex = 11;
-            // 
-            // label6
-            // 
-            this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(386, 51);
-            this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(47, 16);
-            this.label6.TabIndex = 10;
-            this.label6.Text = "Địa chỉ";
             // 
             // QuanLy
             // 
