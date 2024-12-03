@@ -7,12 +7,15 @@ USE [master]
 GO
 /****** Object:  Database [ShopQuanAo]    Script Date: 9/22/2024 11:00:48 PM ******/
 CREATE DATABASE [ShopQuanAo]
+GO
+USE [ShopQuanAo]
+GO
  CONTAINMENT = NONE
  ON  PRIMARY 
 ( NAME = N'ShopQuanAo', FILENAME = N'C:\Program Files\Microsoft SQL Server\MSSQL16.SQLEXPRESS\MSSQL\DATA\ShopQuanAo.mdf' , SIZE = 8192KB , MAXSIZE = UNLIMITED, FILEGROWTH = 65536KB )
  LOG ON 
 ( NAME = N'ShopQuanAo_log', FILENAME = N'C:\Program Files\Microsoft SQL Server\MSSQL16.SQLEXPRESS\MSSQL\DATA\ShopQuanAo_log.ldf' , SIZE = 8192KB , MAXSIZE = 2048GB , FILEGROWTH = 65536KB )
- WITH CATALOG_COLLATION = DATABASE_DEFAULT, LEDGER = OFF
+WITH CATALOG_COLLATION = DATABASE_DEFAULT, LEDGER = OFF
 GO
 ALTER DATABASE [ShopQuanAo] SET COMPATIBILITY_LEVEL = 160
 GO
@@ -108,6 +111,10 @@ CREATE TABLE [dbo].[ChiTietPhieuNhap](
 	[ID_Phieu] ASC
 )WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
 ) ON [PRIMARY]
+INSERT [dbo].[ChiTietPhieuNhap]([ID_Phieu],[Ma_SP],[Gia],[SoLuong],[ThanhTien]) VALUES (N'P11',N'A01',45000,4,180000)
+INSERT [dbo].[ChiTietPhieuNhap]([ID_Phieu],[Ma_SP],[Gia],[SoLuong],[ThanhTien]) VALUES (N'P12',N'A03',50000,3,150000)
+INSERT [dbo].[ChiTietPhieuNhap]([ID_Phieu],[Ma_SP],[Gia],[SoLuong],[ThanhTien]) VALUES (N'P13',N'A04',55000,2,110000)
+INSERT [dbo].[ChiTietPhieuNhap]([ID_Phieu],[Ma_SP],[Gia],[SoLuong],[ThanhTien]) VALUES (N'P14',N'Q02',60000,5,300000)
 GO
 /****** Object:  Table [dbo].[DanhSachNhanVien]    Script Date: 9/22/2024 11:00:48 PM ******/
 SET ANSI_NULLS ON
@@ -181,7 +188,7 @@ CREATE TABLE [ChiTietHoaDon] (
 ----
 INSERT [dbo].[HoaDon]([Ma_HD],[Ma_NV],[NgayLap],[KH],[SDT],[DiaChi],[TongTien],[PhiShip],[TongThanhToan]) VALUES (N'HD001',N'0112',N'01/02/2024',N'Quốc Huy',N'0123456789',N'01 Hẻm Ma Đạo',N'245000',N'15000',N'260000')
 INSERT [dbo].[HoaDon]([Ma_HD],[Ma_NV],[NgayLap],[KH],[SDT],[DiaChi],[TongTien],[PhiShip],[TongThanhToan]) VALUES (N'HD002',N'0113',N'04/10/2024',N'Hừng Vĩnh',N'0555567892',N'56 Ngô Quyền',N'400000',N'20000',N'420000')
-INSERT [dbo].[HoaDon]([Ma_HD],[Ma_NV],[NgayLap],[KH],[SDT],[DiaChi],[TongTien],[PhiShip],[TongThanhToan]) VALUES (N'HD003',N'0112',N'21/12/2024',N'Chill Guy',N'0312666211',N'17 Phan Đình Phùng',N'137000',N'13000',N'150000')
+INSERT [dbo].[HoaDon]([Ma_HD],[Ma_NV],[NgayLap],[KH],[SDT],[DiaChi],[TongTien],[PhiShip],[TongThanhToan]) VALUES (N'HD003',N'0112',N'21/12/2024',N'Chill Guy',N'0312666211',N'17 Tran lee',N'137000',N'13000',N'150000')
 INSERT [dbo].[HoaDon]([Ma_HD],[Ma_NV],[NgayLap],[KH],[SDT],[DiaChi],[TongTien],[PhiShip],[TongThanhToan]) VALUES (N'HD004',N'0111',N'11/28/2024',N'Thịnh Lễ Hưu',N'09885426461',N'23 Hai Bà Trừng',N'430000',N'23000',N'453000')
 
 SELECT * FROM [HoaDon]
@@ -294,10 +301,6 @@ CREATE TABLE [dbo].[PhieuNhap](
 	[Ma_NV] [nvarchar](20) NOT NULL,
 	[Ma_NCC] [nvarchar](20) NOT NULL,
 	[NgayNhap] [datetime] NOT NULL,
-	[TienHang] [nvarchar](20) NOT NULL,
-	[PhiShip] [nvarchar](20) NOT NULL,
-	[TienThue] [nvarchar](20) NOT NULL,
-	[ChiPhiKhac] [nvarchar](20) NOT NULL,
 	[ThanhTien] [nvarchar](20) NOT NULL,
  CONSTRAINT [PK_PhieuNhap] PRIMARY KEY CLUSTERED 
 (
@@ -305,7 +308,11 @@ CREATE TABLE [dbo].[PhieuNhap](
 )WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
 ) ON [PRIMARY]
 GO
-/****** Object:  Table [dbo].[TaiKhoan]    Script Date: 9/22/2024 11:00:48 PM ******/
+INSERT [dbo].[PhieuNhap]([ID_Phieu],[Ma_NV],[Ma_NCC],[NgayNhap],[ThanhTien]) VALUES (N'P11',N'0111',N'CC01',12/11/2024,180000)
+INSERT [dbo].[PhieuNhap]([ID_Phieu],[Ma_NV],[Ma_NCC],[NgayNhap],[ThanhTien]) VALUES (N'P12',N'0112',N'CC01',23/11/2024,150000)
+INSERT [dbo].[PhieuNhap]([ID_Phieu],[Ma_NV],[Ma_NCC],[NgayNhap],[ThanhTien]) VALUES (N'P13',N'0111',N'CC01',09/12/2024,110000)
+INSERT [dbo].[PhieuNhap]([ID_Phieu],[Ma_NV],[Ma_NCC],[NgayNhap],[ThanhTien]) VALUES (N'P14',N'0113',N'CC01',13/12/2024,300000)
+/****** Object:  Table [dbo].[TaiKhoan]   ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -313,51 +320,105 @@ GO
 CREATE TABLE [dbo].[TaiKhoan](
 	[TenDangNhap] [nvarchar](30) NOT NULL,
 	[MatKhau] [nvarchar](30) NOT NULL,
-	[ChucVu] [nvarchar](20) NOT NULL,
-	[Ma_NV] [nvarchar](20) NOT NULL,
+	[HoVaTenLot_NV] [nvarchar](30) Not NULL,
+	[Ten_NV] [nvarchar](20) Not NULL,
+	[CCCDNV] [int] NOT NULL,
+	[SDT_NV] [int] NOT NULL,
+	[NgaySinh_NV] [date] NOT NULL,
+	[DiaChi_NV] [nvarchar](30) NOT NULL,
+	[ChucVu] [nvarchar](20) NOT NULL
  CONSTRAINT [PK_TaiKhoan] PRIMARY KEY CLUSTERED 
 (
-	[Ma_NV] ASC
+	[TenDangNhap] ASC
 )WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
 ) ON [PRIMARY]
 GO
 ---
-INSERT [dbo].[TaiKhoan]([TenDangNhap],[MatKhau],[ChucVu],[Ma_NV]) VALUES (N'admin123',N'123456',N'QuanLy',N'0111')
-INSERT [dbo].[TaiKhoan]([TenDangNhap],[MatKhau],[ChucVu],[Ma_NV]) VALUES (N'baoquan1',N'quan123',N'NhanVien',N'0112')
-INSERT [dbo].[TaiKhoan]([TenDangNhap],[MatKhau],[ChucVu],[Ma_NV]) VALUES (N'huutruong1',N'truong123',N'NhanVien',N'0113')
+INSERT [dbo].[TaiKhoan]([TenDangNhap],[MatKhau],[HoVaTenLot_NV],[Ten_NV],[CCCDNV],[SDT_NV],[NgaySinh_NV],[DiaChi_NV],[ChucVu]) VALUES (N'admin123',N'123456',N'Quản lý',N'A','0684666112','0975181818','2004-01-01',N'2/3 Hoàng Diệu',N'QuanLy')
+INSERT [dbo].[TaiKhoan]([TenDangNhap],[MatKhau],[HoVaTenLot_NV],[Ten_NV],[CCCDNV],[SDT_NV],[NgaySinh_NV],[DiaChi_NV],[ChucVu]) VALUES (N'nhanvien1',N'123456',N'Nhân viên',N'B','068076723','014888666','2004-05-06',N'7 Hai Bà Trưng',N'NhanVien')
+INSERT [dbo].[TaiKhoan]([TenDangNhap],[MatKhau],[HoVaTenLot_NV],[Ten_NV],[CCCDNV],[SDT_NV],[NgaySinh_NV],[DiaChi_NV],[ChucVu]) VALUES (N'nhanvien2',N'123456',N'Nhân viên',N'C','0682346112','039393955','2004-09-03',N'10 Trần Lê',N'NhanVien')
+
 
 SELECT * FROM [TaiKhoan]
 ----
 
 
-ALTER TABLE [dbo].[ChiTietHoaDon]  WITH CHECK ADD  CONSTRAINT [FK_ChiTietHoaDon_HoaDon] FOREIGN KEY([Ma_HD])
-REFERENCES [dbo].[HoaDon] ([Ma_HD])
-GO
-ALTER TABLE [dbo].[ChiTietHoaDon] CHECK CONSTRAINT [FK_ChiTietHoaDon_HoaDon]
-GO
-ALTER TABLE [dbo].[ChiTietHoaDon]  WITH CHECK ADD  CONSTRAINT [FK_ChiTietHoaDon_MatHang] FOREIGN KEY([Ma_SP])
-REFERENCES [dbo].[MatHang] ([Ma_SP])
-GO
-ALTER TABLE [dbo].[ChiTietHoaDon] CHECK CONSTRAINT [FK_ChiTietHoaDon_MatHang]
-GO
-ALTER TABLE [dbo].[HoaDon]  WITH CHECK ADD  CONSTRAINT [FK_HoaDon_DanhSachNhanVien] FOREIGN KEY([Ma_NV])
-REFERENCES [dbo].[DanhSachNhanVien] ([Ma_NV])
-GO
-ALTER TABLE [dbo].[HoaDon] CHECK CONSTRAINT [FK_HoaDon_DanhSachNhanVien]
-GO
-ALTER TABLE [dbo].[HoaDon]  WITH CHECK ADD  CONSTRAINT [FK_HoaDon_KhachHang] FOREIGN KEY([Ma_KH])
-REFERENCES [dbo].[KhachHang] ([Ma_KH])
-GO
-ALTER TABLE [dbo].[HoaDon] CHECK CONSTRAINT [FK_HoaDon_KhachHang]
-GO
-ALTER TABLE [dbo].[TaiKhoan]  WITH CHECK ADD  CONSTRAINT [FK_TaiKhoan_DanhSachNhanVien] FOREIGN KEY([Ma_NV])
-REFERENCES [dbo].[DanhSachNhanVien] ([Ma_NV])
-GO
-ALTER TABLE [dbo].[TaiKhoan] CHECK CONSTRAINT [FK_TaiKhoan_DanhSachNhanVien]
-GO
+
 USE [master]
 GO
 ALTER DATABASE [ShopQuanAo] SET  READ_WRITE 
 GO
 ----
+/****** Thêm tài khoản ******/
+CREATE PROCEDURE [InsertAccount]
+    @tenDangNhap nvarchar(30) OUTPUT,
+    @matKhau nvarchar(30),
+    @hoVaTenLot_nv nvarchar(30),
+    @ten_nv nvarchar(20),
+    @sdt_nv int,
+    @cccdnv int,
+    @ngaySinh_nv date,
+    @diaChi_nv nvarchar(30),
+    @chucVu nvarchar(20)
+AS
+BEGIN
+    INSERT INTO [TaiKhoan]
+    ([TenDangNhap], [MatKhau], [HoVaTenLot_NV], [Ten_NV], [SDT_NV], [CCCDNV], [NgaySinh_NV], [DiaChi_NV], [ChucVu])
+    VALUES
+    (@tenDangNhap, @matKhau, @hoVaTenLot_nv, @ten_nv, @sdt_nv, @cccdnv, @ngaySinh_nv, @diaChi_nv, @chucVu);
 
+END
+
+/****** sửa tài khoản ******/
+CREATE PROCEDURE [UpdateAccount]
+	@tenDangNhap nvarchar(30) OUTPUT,
+	@matKhau nvarchar(30),
+    @hoVaTenLot_nv nvarchar(30),
+    @ten_nv nvarchar(20),
+    @sdt_nv int,
+    @cccdnv int,
+	@ngaySinh_nv date,
+    @diaChi_nv nvarchar(30),
+    @chucVu nvarchar(20)
+AS
+UPDATE [TaiKhoan]
+SET
+	[MatKhau] = @matKhau,
+	[HoVaTenLot_NV] = @hoVaTenLot_nv,
+	[Ten_NV] = @ten_nv,
+	[SDT_NV] = @sdt_nv,
+	[CCCDNV] =@cccdnv,
+	[NgaySinh_NV] = @ngaySinh_nv,
+	[DiaChi_NV] = @diaChi_nv,
+	[ChucVu] = @chucVu
+WHERE TenDangNhap = @tenDangNhap
+
+IF @@ERROR <> 0
+RETURN 0
+ELSE
+RETURN 1
+GO
+/****** xóa tài khoản ******/
+CREATE PROCEDURE [DeleteAccount]
+    @tenDangNhap NVARCHAR(30)
+AS
+BEGIN
+    BEGIN TRANSACTION;
+    BEGIN TRY
+
+        DELETE FROM TaiKhoan
+        WHERE TenDangNhap = @tenDangNhap;
+
+
+        IF @@ROWCOUNT = 0
+        BEGIN
+            RAISERROR('Account with TenDangNhap %s does not exist.', 16, 1, @tenDangNhap);
+        END
+
+        COMMIT TRANSACTION;
+    END TRY
+    BEGIN CATCH
+        ROLLBACK TRANSACTION;
+        THROW;
+    END CATCH
+END;

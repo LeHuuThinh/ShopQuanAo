@@ -27,5 +27,10 @@ namespace ShopQuanAo
             XemTrangIn formXemTrangIn = new XemTrangIn(this);
             formXemTrangIn.Show();
         }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            
+        }
     }
 }

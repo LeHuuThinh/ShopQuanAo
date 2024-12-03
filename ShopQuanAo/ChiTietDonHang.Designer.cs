@@ -29,6 +29,8 @@
         private void InitializeComponent()
         {
             this.grbTTKH = new System.Windows.Forms.GroupBox();
+            this.txtHD_MaNV = new System.Windows.Forms.TextBox();
+            this.label3 = new System.Windows.Forms.Label();
             this.txtHD_MaHD = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
             this.txtHD_DiaChi = new System.Windows.Forms.TextBox();
@@ -39,10 +41,8 @@
             this.label1 = new System.Windows.Forms.Label();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.lvDetailHD = new System.Windows.Forms.ListView();
-            this.columnHeader1 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.columnHeader2 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.columnHeader3 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.columnHeader4 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.columnHeader5 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.columnHeader6 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.columnHeader7 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
@@ -59,8 +59,6 @@
             this.label7 = new System.Windows.Forms.Label();
             this.btnPrint = new System.Windows.Forms.Button();
             this.btnExit = new System.Windows.Forms.Button();
-            this.txtHD_MaNV = new System.Windows.Forms.TextBox();
-            this.label3 = new System.Windows.Forms.Label();
             this.grbTTKH.SuspendLayout();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
@@ -86,6 +84,23 @@
             this.grbTTKH.TabIndex = 0;
             this.grbTTKH.TabStop = false;
             this.grbTTKH.Text = "Thông tin khách hàng";
+            // 
+            // txtHD_MaNV
+            // 
+            this.txtHD_MaNV.Location = new System.Drawing.Point(783, 63);
+            this.txtHD_MaNV.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.txtHD_MaNV.Name = "txtHD_MaNV";
+            this.txtHD_MaNV.Size = new System.Drawing.Size(117, 22);
+            this.txtHD_MaNV.TabIndex = 13;
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Location = new System.Drawing.Point(679, 66);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(86, 16);
+            this.label3.TabIndex = 12;
+            this.label3.Text = "Mã nhân viên";
             // 
             // txtHD_MaHD
             // 
@@ -171,10 +186,8 @@
             // lvDetailHD
             // 
             this.lvDetailHD.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
-            this.columnHeader1,
             this.columnHeader2,
             this.columnHeader3,
-            this.columnHeader4,
             this.columnHeader5,
             this.columnHeader6,
             this.columnHeader7});
@@ -189,11 +202,6 @@
             this.lvDetailHD.UseCompatibleStateImageBehavior = false;
             this.lvDetailHD.View = System.Windows.Forms.View.Details;
             // 
-            // columnHeader1
-            // 
-            this.columnHeader1.Text = "ID Đơn";
-            this.columnHeader1.Width = 100;
-            // 
             // columnHeader2
             // 
             this.columnHeader2.Text = "ID Hàng";
@@ -203,11 +211,6 @@
             // 
             this.columnHeader3.Text = "Tên mặt hàng";
             this.columnHeader3.Width = 150;
-            // 
-            // columnHeader4
-            // 
-            this.columnHeader4.Text = "Giá bán";
-            this.columnHeader4.Width = 100;
             // 
             // columnHeader5
             // 
@@ -353,23 +356,6 @@
             this.btnExit.Text = "Thoát";
             this.btnExit.UseVisualStyleBackColor = true;
             // 
-            // txtHD_MaNV
-            // 
-            this.txtHD_MaNV.Location = new System.Drawing.Point(783, 63);
-            this.txtHD_MaNV.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.txtHD_MaNV.Name = "txtHD_MaNV";
-            this.txtHD_MaNV.Size = new System.Drawing.Size(117, 22);
-            this.txtHD_MaNV.TabIndex = 13;
-            // 
-            // label3
-            // 
-            this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(679, 66);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(86, 16);
-            this.label3.TabIndex = 12;
-            this.label3.Text = "Mã nhân viên";
-            // 
             // ChiTietDonHang
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -405,10 +391,8 @@
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.GroupBox groupBox1;
         private System.Windows.Forms.ListView lvDetailHD;
-        private System.Windows.Forms.ColumnHeader columnHeader1;
         private System.Windows.Forms.ColumnHeader columnHeader2;
         private System.Windows.Forms.ColumnHeader columnHeader3;
-        private System.Windows.Forms.ColumnHeader columnHeader4;
         private System.Windows.Forms.ColumnHeader columnHeader5;
         private System.Windows.Forms.ColumnHeader columnHeader6;
         private System.Windows.Forms.ColumnHeader columnHeader7;

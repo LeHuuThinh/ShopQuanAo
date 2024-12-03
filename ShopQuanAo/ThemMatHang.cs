@@ -52,7 +52,7 @@ namespace ShopQuanAo
                 return;
             }
 
-            // Chuỗi kết nối (thay đổi theo cấu hình của bạn)
+            // Chuỗi kết nối 
             string connectionString = "Server=.\\SQLEXPRESS;Database=ShopQuanAo;Trusted_Connection=True;";
 
 

@@ -114,7 +114,7 @@
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
             this.menuStrip1.Padding = new System.Windows.Forms.Padding(5, 2, 0, 2);
-            this.menuStrip1.Size = new System.Drawing.Size(1269, 30);
+            this.menuStrip1.Size = new System.Drawing.Size(1269, 28);
             this.menuStrip1.TabIndex = 0;
             this.menuStrip1.Text = "menuStrip1";
             // 
@@ -125,7 +125,7 @@
             this.menuChiTietDSMH,
             this.menuInMaVach});
             this.mộtToolStripMenuItem.Name = "mộtToolStripMenuItem";
-            this.mộtToolStripMenuItem.Size = new System.Drawing.Size(126, 26);
+            this.mộtToolStripMenuItem.Size = new System.Drawing.Size(126, 24);
             this.mộtToolStripMenuItem.Text = "Nhập đơn hàng";
             // 
             // menuNhomMatHang
@@ -152,7 +152,7 @@
             // menuDSHD
             // 
             this.menuDSHD.Name = "menuDSHD";
-            this.menuDSHD.Size = new System.Drawing.Size(158, 26);
+            this.menuDSHD.Size = new System.Drawing.Size(158, 24);
             this.menuDSHD.Text = "Danh sách đơn hàng";
             this.menuDSHD.Click += new System.EventHandler(this.menuDSHD_Click);
             // 
@@ -162,7 +162,7 @@
             this.menuNewNH,
             this.menuDSNH});
             this.menuNhapHang3.Name = "menuNhapHang3";
-            this.menuNhapHang3.Size = new System.Drawing.Size(96, 26);
+            this.menuNhapHang3.Size = new System.Drawing.Size(96, 24);
             this.menuNhapHang3.Text = "Nhập hàng";
             // 
             // menuNewNH
@@ -185,7 +185,7 @@
             this.menuBaoCaoDT,
             this.menuMHSapHet});
             this.menuDoanhThu.Name = "menuDoanhThu";
-            this.menuDoanhThu.Size = new System.Drawing.Size(92, 26);
+            this.menuDoanhThu.Size = new System.Drawing.Size(92, 24);
             this.menuDoanhThu.Text = "Doanh thu";
             // 
             // menuBaoCaoDT
@@ -208,7 +208,7 @@
             this.quảnLýTàiKhoảnToolStripMenuItem,
             this.đổiMậtKhẩuToolStripMenuItem});
             this.menuQuanLyTK.Name = "menuQuanLyTK";
-            this.menuQuanLyTK.Size = new System.Drawing.Size(85, 26);
+            this.menuQuanLyTK.Size = new System.Drawing.Size(85, 24);
             this.menuQuanLyTK.Text = "Tài khoản";
             // 
             // quảnLýTàiKhoảnToolStripMenuItem
